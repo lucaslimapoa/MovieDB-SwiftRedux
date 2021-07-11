@@ -1,5 +1,5 @@
 //
-//  MovieDB_SwiftReduxApp.swift
+//  MovieDBApp.swift
 //  MovieDB-SwiftRedux
 //
 //  Created by Lucas Lima on 11.07.21.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct MovieDB_SwiftReduxApp: App {
+struct MovieDBApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

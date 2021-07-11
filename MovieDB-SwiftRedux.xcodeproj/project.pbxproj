@@ -3,16 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D44C288F269B83F60036A0F2 /* MovieDB_SwiftReduxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C288E269B83F60036A0F2 /* MovieDB_SwiftReduxApp.swift */; };
+		D44C288F269B83F60036A0F2 /* MovieDBApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C288E269B83F60036A0F2 /* MovieDBApp.swift */; };
 		D44C2891269B83F60036A0F2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C2890269B83F60036A0F2 /* ContentView.swift */; };
 		D44C2893269B83F60036A0F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44C2892269B83F60036A0F2 /* Assets.xcassets */; };
 		D44C2896269B83F60036A0F2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44C2895269B83F60036A0F2 /* Preview Assets.xcassets */; };
 		D44C28A1269B83F70036A0F2 /* MovieDB_SwiftReduxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C28A0269B83F70036A0F2 /* MovieDB_SwiftReduxTests.swift */; };
-		D44C28AC269B83F70036A0F2 /* MovieDB_SwiftReduxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C28AB269B83F70036A0F2 /* MovieDB_SwiftReduxUITests.swift */; };
+		D44C28BB269B843F0036A0F2 /* SwiftRedux in Frameworks */ = {isa = PBXBuildFile; productRef = D44C28BA269B843F0036A0F2 /* SwiftRedux */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,18 +23,11 @@
 			remoteGlobalIDString = D44C288A269B83F60036A0F2;
 			remoteInfo = "MovieDB-SwiftRedux";
 		};
-		D44C28A8269B83F70036A0F2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D44C2883269B83F60036A0F2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D44C288A269B83F60036A0F2;
-			remoteInfo = "MovieDB-SwiftRedux";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		D44C288B269B83F60036A0F2 /* MovieDB-SwiftRedux.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MovieDB-SwiftRedux.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D44C288E269B83F60036A0F2 /* MovieDB_SwiftReduxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDB_SwiftReduxApp.swift; sourceTree = "<group>"; };
+		D44C288E269B83F60036A0F2 /* MovieDBApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBApp.swift; sourceTree = "<group>"; };
 		D44C2890269B83F60036A0F2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D44C2892269B83F60036A0F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D44C2895269B83F60036A0F2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -42,9 +35,6 @@
 		D44C289C269B83F70036A0F2 /* MovieDB-SwiftReduxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MovieDB-SwiftReduxTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44C28A0269B83F70036A0F2 /* MovieDB_SwiftReduxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDB_SwiftReduxTests.swift; sourceTree = "<group>"; };
 		D44C28A2269B83F70036A0F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D44C28A7269B83F70036A0F2 /* MovieDB-SwiftReduxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MovieDB-SwiftReduxUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D44C28AB269B83F70036A0F2 /* MovieDB_SwiftReduxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDB_SwiftReduxUITests.swift; sourceTree = "<group>"; };
-		D44C28AD269B83F70036A0F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,17 +42,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D44C28BB269B843F0036A0F2 /* SwiftRedux in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D44C2899269B83F70036A0F2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D44C28A4269B83F70036A0F2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -77,7 +61,6 @@
 			children = (
 				D44C288D269B83F60036A0F2 /* MovieDB-SwiftRedux */,
 				D44C289F269B83F70036A0F2 /* MovieDB-SwiftReduxTests */,
-				D44C28AA269B83F70036A0F2 /* MovieDB-SwiftReduxUITests */,
 				D44C288C269B83F60036A0F2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,7 +70,6 @@
 			children = (
 				D44C288B269B83F60036A0F2 /* MovieDB-SwiftRedux.app */,
 				D44C289C269B83F70036A0F2 /* MovieDB-SwiftReduxTests.xctest */,
-				D44C28A7269B83F70036A0F2 /* MovieDB-SwiftReduxUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,7 +77,7 @@
 		D44C288D269B83F60036A0F2 /* MovieDB-SwiftRedux */ = {
 			isa = PBXGroup;
 			children = (
-				D44C288E269B83F60036A0F2 /* MovieDB_SwiftReduxApp.swift */,
+				D44C288E269B83F60036A0F2 /* MovieDBApp.swift */,
 				D44C2890269B83F60036A0F2 /* ContentView.swift */,
 				D44C2892269B83F60036A0F2 /* Assets.xcassets */,
 				D44C2897269B83F60036A0F2 /* Info.plist */,
@@ -121,15 +103,6 @@
 			path = "MovieDB-SwiftReduxTests";
 			sourceTree = "<group>";
 		};
-		D44C28AA269B83F70036A0F2 /* MovieDB-SwiftReduxUITests */ = {
-			isa = PBXGroup;
-			children = (
-				D44C28AB269B83F70036A0F2 /* MovieDB_SwiftReduxUITests.swift */,
-				D44C28AD269B83F70036A0F2 /* Info.plist */,
-			);
-			path = "MovieDB-SwiftReduxUITests";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,6 +119,9 @@
 			dependencies = (
 			);
 			name = "MovieDB-SwiftRedux";
+			packageProductDependencies = (
+				D44C28BA269B843F0036A0F2 /* SwiftRedux */,
+			);
 			productName = "MovieDB-SwiftRedux";
 			productReference = D44C288B269B83F60036A0F2 /* MovieDB-SwiftRedux.app */;
 			productType = "com.apple.product-type.application";
@@ -168,24 +144,6 @@
 			productReference = D44C289C269B83F70036A0F2 /* MovieDB-SwiftReduxTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D44C28A6269B83F70036A0F2 /* MovieDB-SwiftReduxUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D44C28B6269B83F70036A0F2 /* Build configuration list for PBXNativeTarget "MovieDB-SwiftReduxUITests" */;
-			buildPhases = (
-				D44C28A3269B83F70036A0F2 /* Sources */,
-				D44C28A4269B83F70036A0F2 /* Frameworks */,
-				D44C28A5269B83F70036A0F2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D44C28A9269B83F70036A0F2 /* PBXTargetDependency */,
-			);
-			name = "MovieDB-SwiftReduxUITests";
-			productName = "MovieDB-SwiftReduxUITests";
-			productReference = D44C28A7269B83F70036A0F2 /* MovieDB-SwiftReduxUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -202,10 +160,6 @@
 						CreatedOnToolsVersion = 12.5;
 						TestTargetID = D44C288A269B83F60036A0F2;
 					};
-					D44C28A6269B83F70036A0F2 = {
-						CreatedOnToolsVersion = 12.5;
-						TestTargetID = D44C288A269B83F60036A0F2;
-					};
 				};
 			};
 			buildConfigurationList = D44C2886269B83F60036A0F2 /* Build configuration list for PBXProject "MovieDB-SwiftRedux" */;
@@ -217,13 +171,15 @@
 				Base,
 			);
 			mainGroup = D44C2882269B83F60036A0F2;
+			packageReferences = (
+				D44C28B9269B843F0036A0F2 /* XCRemoteSwiftPackageReference "SwiftRedux" */,
+			);
 			productRefGroup = D44C288C269B83F60036A0F2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				D44C288A269B83F60036A0F2 /* MovieDB-SwiftRedux */,
 				D44C289B269B83F70036A0F2 /* MovieDB-SwiftReduxTests */,
-				D44C28A6269B83F70036A0F2 /* MovieDB-SwiftReduxUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -245,13 +201,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D44C28A5269B83F70036A0F2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -260,7 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D44C2891269B83F60036A0F2 /* ContentView.swift in Sources */,
-				D44C288F269B83F60036A0F2 /* MovieDB_SwiftReduxApp.swift in Sources */,
+				D44C288F269B83F60036A0F2 /* MovieDBApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,14 +221,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D44C28A3269B83F70036A0F2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D44C28AC269B83F70036A0F2 /* MovieDB_SwiftReduxUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -287,11 +228,6 @@
 			isa = PBXTargetDependency;
 			target = D44C288A269B83F60036A0F2 /* MovieDB-SwiftRedux */;
 			targetProxy = D44C289D269B83F70036A0F2 /* PBXContainerItemProxy */;
-		};
-		D44C28A9269B83F70036A0F2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D44C288A269B83F60036A0F2 /* MovieDB-SwiftRedux */;
-			targetProxy = D44C28A8269B83F70036A0F2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -496,44 +432,6 @@
 			};
 			name = Release;
 		};
-		D44C28B7269B83F70036A0F2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "MovieDB-SwiftReduxUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.lucaslima.MovieDB-SwiftReduxUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "MovieDB-SwiftRedux";
-			};
-			name = Debug;
-		};
-		D44C28B8269B83F70036A0F2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "MovieDB-SwiftReduxUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.lucaslima.MovieDB-SwiftReduxUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "MovieDB-SwiftRedux";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -564,16 +462,26 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D44C28B6269B83F70036A0F2 /* Build configuration list for PBXNativeTarget "MovieDB-SwiftReduxUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D44C28B7269B83F70036A0F2 /* Debug */,
-				D44C28B8269B83F70036A0F2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D44C28B9269B843F0036A0F2 /* XCRemoteSwiftPackageReference "SwiftRedux" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lucaslimapoa/SwiftRedux";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D44C28BA269B843F0036A0F2 /* SwiftRedux */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D44C28B9269B843F0036A0F2 /* XCRemoteSwiftPackageReference "SwiftRedux" */;
+			productName = SwiftRedux;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D44C2883269B83F60036A0F2 /* Project object */;
 }

@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SwiftRedux",
+        "repositoryURL": "https://github.com/lucaslimapoa/SwiftRedux",
+        "state": {
+          "branch": null,
+          "revision": "ebe4cdce6e5b10c4cff584c1834b594b5ba468e0",
+          "version": "0.1.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
