@@ -24,32 +24,32 @@ class FeedReducerTests: XCTestCase {
         cancellables = []
     }
     
-    func testFeedActionFetchSuccessSetsTrendingMoviesStateToLoadedWithMovies() {
+    func testFeedActionFetchSuccessSetsPopularMoviesStateToLoadedWithMovies() {
         store.dispatch(action: FeedAction.fetchSuccess(fakeMovies))
-        XCTAssertEqual(store.state, FeedState(trendingMovies: .loaded(fakeMovies)))
+        XCTAssertEqual(store.state, FeedState(popularMovies: .loaded(fakeMovies)))
     }
     
-    func testFeedActionFetchErrorSetsTrendingMoviesStateToError() {
+    func testFeedActionFetchErrorSetsPopularMoviesStateToError() {
         store.dispatch(action: FeedAction.fetchError)
-        XCTAssertEqual(store.state, FeedState(trendingMovies: .error))
+        XCTAssertEqual(store.state, FeedState(popularMovies: .error))
     }
     
-    func testFeedActionFetchLoadingSetsTrendingMoviesStateToLoading() {
+    func testFeedActionFetchLoadingSetsPopularMoviesStateToLoading() {
         store.dispatch(action: FeedAction.fetchLoading)
-        XCTAssertEqual(store.state, FeedState(trendingMovies: .loading(nil)))
+        XCTAssertEqual(store.state, FeedState(popularMovies: .loading(nil)))
     }
     
-    func testFeedActionFetchTrendingMoviesInitiatedSetsStateToLoading() {
+    func testFeedActionFetchPopularMoviesInitiatedSetsStateToLoading() {
         let service = MovieServiceMock()
         service.trendingStub = Empty(completeImmediately: true)
             .eraseToAnyPublisher()
         
-        store.dispatch(action: FeedAction.fetchTrendingMovies(service: service))
+        store.dispatch(action: FeedAction.fetchPopularMovies(service: service))
 
-        XCTAssertEqual(store.state, FeedState(trendingMovies: .loading(nil)))
+        XCTAssertEqual(store.state, FeedState(popularMovies: .loading(nil)))
     }
     
-    func testFeedActionFetchTrendingMoviesSuccessSetsStateToLoaded() {
+    func testFeedActionFetchPopularMoviesSuccessSetsStateToLoaded() {
         let expectation = expectation(description: "should set state to loaded")
         
         let service = MovieServiceMock()
@@ -60,32 +60,32 @@ class FeedReducerTests: XCTestCase {
         store.$state
             .dropFirst(2)
             .sink { newState in
-                XCTAssertEqual(newState, FeedState(trendingMovies: .loaded(fakeMovies)))
+                XCTAssertEqual(newState, FeedState(popularMovies: .loaded(fakeMovies)))
                 expectation.fulfill()
             }
             .store(in: &cancellables)
         
-        store.dispatch(action: FeedAction.fetchTrendingMovies(service: service))
+        store.dispatch(action: FeedAction.fetchPopularMovies(service: service))
                 
         waitForExpectations(timeout: 1)
     }
     
-    func testFeedActionFetchTrendingMoviesErrorSetsStateToError() {
+    func testFeedActionFetchPopularMoviesErrorSetsStateToError() {
         let expectation = expectation(description: "should set state to loaded")
         
         let service = MovieServiceMock()
-        service.trendingStub = Fail(error: MovieServiceError.invalidURL)            
+        service.trendingStub = Fail(error: MovieServiceError.invalidURL)
             .eraseToAnyPublisher()
         
         store.$state
             .dropFirst(2)
             .sink { newState in
-                XCTAssertEqual(newState, FeedState(trendingMovies: .error))
+                XCTAssertEqual(newState, FeedState(popularMovies: .error))
                 expectation.fulfill()
             }
             .store(in: &cancellables)
         
-        store.dispatch(action: FeedAction.fetchTrendingMovies(service: service))
+        store.dispatch(action: FeedAction.fetchPopularMovies(service: service))
                 
         waitForExpectations(timeout: 1)
     }
@@ -93,7 +93,7 @@ class FeedReducerTests: XCTestCase {
 
 private final class MovieServiceMock: MovieService {
     var trendingStub: AnyPublisher<[Movie], MovieServiceError>?
-    func trending(mediaType: MediaType, timeWindow: TimeWindow) -> AnyPublisher<[Movie], MovieServiceError> {
+    func popular() -> AnyPublisher<[Movie], MovieServiceError> {
         guard let trendingStub = trendingStub else { fatalError("trendingStub not configured") }
         return trendingStub
     }
@@ -109,6 +109,7 @@ private let fakeMovies = [
         genreIds: nil,
         voteCount: nil,
         voteAverage: nil,
-        mediaType: nil
+        mediaType: nil,
+        posterPath: nil
     )
 ]

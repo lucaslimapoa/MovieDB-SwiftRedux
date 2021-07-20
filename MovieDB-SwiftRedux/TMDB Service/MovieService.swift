@@ -14,7 +14,7 @@ enum MovieServiceError: Error {
 }
 
 protocol MovieService {
-    func trending(mediaType: MediaType, timeWindow: TimeWindow) -> AnyPublisher<[Movie], MovieServiceError>
+    func popular() -> AnyPublisher<[Movie], MovieServiceError>
 }
 
 final class MovieDbService: MovieService {
@@ -24,7 +24,21 @@ final class MovieDbService: MovieService {
     
     private let jsonDecoder: JSONDecoder = {
         let jsonDecoder = JSONDecoder()
-        jsonDecoder.dateDecodingStrategy = .iso8601
+        jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+        jsonDecoder.dateDecodingStrategy = .custom { decoder in
+            let container = try decoder.singleValueContainer()
+            let dateString = try container.decode(String.self)
+
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            
+            guard let date = dateFormatter.date(from: dateString) else {
+                throw DecodingError.dataCorruptedError(in: container,
+                    debugDescription: "Cannot decode date string \(dateString)")
+            }
+            
+            return date
+        }
         return jsonDecoder
     }()
     
@@ -33,10 +47,10 @@ final class MovieDbService: MovieService {
         self.apiKey = apiKey
     }
     
-    func trending(mediaType: MediaType, timeWindow: TimeWindow) -> AnyPublisher<[Movie], MovieServiceError> {
+    func popular() -> AnyPublisher<[Movie], MovieServiceError> {
         guard let request = URLBuilder()
             .with(baseURL: baseURL)
-            .with(path: "trending/\(mediaType.rawValue)/\(timeWindow.rawValue)")
+            .with(path: "movie/popular")
             .with(apiKey: apiKey)
                 .build() else { return Fail(error: .invalidURL).eraseToAnyPublisher() }
         

@@ -9,7 +9,7 @@
 
 extension FeedState: Equatable {
     public static func == (lhs: FeedState, rhs: FeedState) -> Bool {
-        switch (lhs.trendingMovies, rhs.trendingMovies) {
+        switch (lhs.popularMovies, rhs.popularMovies) {
         case (.loading(let lhsLoading), .loading(let rhsLoading)):
             return lhsLoading == rhsLoading
         case (.loaded(let lhsLoaded), .loaded(let rhsLoaded)):

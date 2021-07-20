@@ -12,18 +12,23 @@ struct FeedView: View {
     @ObservedObject var store: Store<FeedState>
     
     var body: some View {
-        VStack {
-            switch store.state.trendingMovies {
-            case .loading(let items):
-                loading(items: items)
-            case .loaded(let items):
-                loaded(movies: items)
-            case .error:
-                Text("Error")
-                    .foregroundColor(.red)
+        ZStack {
+            Color("background")
+            
+            VStack {
+                switch store.state.popularMovies {
+                case .loading(let items):
+                    loading(items: items)
+                case .loaded(let items):
+                    loaded(movies: items)
+                case .error:
+                    Text("Error")
+                        .foregroundColor(.red)
+                }
             }
+            .onAppear { store.dispatch(action: FeedAction.fetchPopularMovies()) }
         }
-        .onAppear { store.dispatch(action: FeedAction.fetchTrendingMovies()) }
+        .edgesIgnoringSafeArea(.all)
     }
     
     private func loading(items: [Movie]?) -> some View {
@@ -42,15 +47,32 @@ struct FeedView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    static var emptyReducer: Reducer<FeedState, FeedAction> {
+        Reducer<FeedState, FeedAction> { _, _ in }
+    }
+    
     static var previews: some View {
-        let previewStore = Store<AppState>(
-            initialState: AppState(),
-            reducer: rootReducer,
-            middleware: [
-                .thunkMiddleware
-            ]
-        )
-        
-        FeedView(store: previewStore.scope(state: \.feedState))
+        Group {
+            FeedView(
+                store: Store<FeedState>(
+                    initialState: FeedState(popularMovies: .loading(nil)),
+                    reducer: emptyReducer
+                )
+            )
+            
+            FeedView(
+                store: Store<FeedState>(
+                    initialState: FeedState(popularMovies: .loaded([])),
+                    reducer: emptyReducer
+                )
+            )
+            
+            FeedView(
+                store: Store<FeedState>(
+                    initialState: FeedState(popularMovies: .error),
+                    reducer: emptyReducer
+                )
+            )
+        }
     }
 }

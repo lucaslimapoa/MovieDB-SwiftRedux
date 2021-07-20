@@ -208,8 +208,8 @@
 		D4D9ECFA26A76EF70084EF2E /* Feed */ = {
 			isa = PBXGroup;
 			children = (
-				D4D9ECF726A76BFB0084EF2E /* FeedReducerTests.swift */,
 				D4D9ECFB26A76F120084EF2E /* FeedState+Equatable.swift */,
+				D4D9ECF726A76BFB0084EF2E /* FeedReducerTests.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";

@@ -11,10 +11,10 @@ import SwiftRedux
 let feedReducer = Reducer<FeedState, FeedAction> { state, action in
     switch action {
     case .fetchSuccess(let movies):
-        state.trendingMovies = .loaded(movies)
+        state.popularMovies = .loaded(movies)
     case .fetchError:
-        state.trendingMovies = .error
+        state.popularMovies = .error
     case .fetchLoading:
-        state.trendingMovies = .loading(state.trendingMovies.items)
+        state.popularMovies = .loading(state.popularMovies.items)
     }
 }

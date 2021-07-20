@@ -14,9 +14,9 @@ enum FeedAction: Action {
     case fetchError
     case fetchLoading
     
-    static func fetchTrendingMovies(service: MovieService = MovieDbService()) -> ThunkActionPublisher<FeedState> {
+    static func fetchPopularMovies(service: MovieService = MovieDbService()) -> ThunkActionPublisher<FeedState> {
         ThunkActionPublisher<FeedState> { store in
-            service.trending(mediaType: .movie, timeWindow: .week)
+            service.popular()
                 .handleEvents(receiveSubscription: { _ in
                     store.dispatch(fetchLoading)
                 })
