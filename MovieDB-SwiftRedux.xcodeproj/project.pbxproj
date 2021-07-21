@@ -20,10 +20,15 @@
 		D44C28D0269B939B0036A0F2 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C28CF269B939B0036A0F2 /* AppState.swift */; };
 		D44C28D5269B93EA0036A0F2 /* RootReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C28D4269B93EA0036A0F2 /* RootReducer.swift */; };
 		D44C28D7269B94020036A0F2 /* PopularMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C28D6269B94020036A0F2 /* PopularMovies.swift */; };
-		D4D9ECF426A769DD0084EF2E /* SwiftRedux in Frameworks */ = {isa = PBXBuildFile; productRef = D4D9ECF326A769DD0084EF2E /* SwiftRedux */; };
+		D45212E126A8C75E0020A2CB /* SwiftRedux in Frameworks */ = {isa = PBXBuildFile; productRef = D45212E026A8C75E0020A2CB /* SwiftRedux */; };
 		D4D9ECF826A76BFB0084EF2E /* PopularMoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D9ECF726A76BFB0084EF2E /* PopularMoviesTests.swift */; };
 		D4D9ECFC26A76F120084EF2E /* LoadableModel+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D9ECFB26A76F120084EF2E /* LoadableModel+Equatable.swift */; };
 		D4D9ECFE26A76F330084EF2E /* Movie+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D9ECFD26A76F330084EF2E /* Movie+Equatable.swift */; };
+		D4D9ED0926A8B98C0084EF2E /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D9ED0826A8B98C0084EF2E /* MovieListView.swift */; };
+		D4D9ED0B26A8B9F00084EF2E /* FakeMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D9ED0A26A8B9F00084EF2E /* FakeMovies.swift */; };
+		D4D9ED0E26A8BABD0084EF2E /* MovieService+JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D9ED0D26A8BABD0084EF2E /* MovieService+JSONDecoder.swift */; };
+		D4D9ED1126A8BBD00084EF2E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D4D9ED1026A8BBD00084EF2E /* Kingfisher */; };
+		D4D9ED1326A8C2190084EF2E /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D9ED1226A8C2190084EF2E /* DateFormatter+Extensions.swift */; };
 		D4E3830E26A4EC2E00336CB3 /* PopularMoviesAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3830D26A4EC2E00336CB3 /* PopularMoviesAction.swift */; };
 		D4E3831026A4EC4A00336CB3 /* LoadableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3830F26A4EC4A00336CB3 /* LoadableModel.swift */; };
 /* End PBXBuildFile section */
@@ -56,9 +61,14 @@
 		D44C28CF269B939B0036A0F2 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		D44C28D4269B93EA0036A0F2 /* RootReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootReducer.swift; sourceTree = "<group>"; };
 		D44C28D6269B94020036A0F2 /* PopularMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMovies.swift; sourceTree = "<group>"; };
+		D45212DF26A8C6F80020A2CB /* SwiftRedux */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftRedux; path = ../SwiftRedux; sourceTree = "<group>"; };
 		D4D9ECF726A76BFB0084EF2E /* PopularMoviesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesTests.swift; sourceTree = "<group>"; };
 		D4D9ECFB26A76F120084EF2E /* LoadableModel+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoadableModel+Equatable.swift"; sourceTree = "<group>"; };
 		D4D9ECFD26A76F330084EF2E /* Movie+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+Equatable.swift"; sourceTree = "<group>"; };
+		D4D9ED0826A8B98C0084EF2E /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
+		D4D9ED0A26A8B9F00084EF2E /* FakeMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeMovies.swift; sourceTree = "<group>"; };
+		D4D9ED0D26A8BABD0084EF2E /* MovieService+JSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieService+JSONDecoder.swift"; sourceTree = "<group>"; };
+		D4D9ED1226A8C2190084EF2E /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
 		D4E3830D26A4EC2E00336CB3 /* PopularMoviesAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesAction.swift; sourceTree = "<group>"; };
 		D4E3830F26A4EC4A00336CB3 /* LoadableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,7 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4D9ECF426A769DD0084EF2E /* SwiftRedux in Frameworks */,
+				D4D9ED1126A8BBD00084EF2E /* Kingfisher in Frameworks */,
+				D45212E126A8C75E0020A2CB /* SwiftRedux in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +96,7 @@
 		D44C2882269B83F60036A0F2 = {
 			isa = PBXGroup;
 			children = (
+				D45212DE26A8C6F80020A2CB /* Packages */,
 				D44C288D269B83F60036A0F2 /* MovieDB-SwiftRedux */,
 				D44C289F269B83F70036A0F2 /* MovieDB-SwiftReduxTests */,
 				D44C288C269B83F60036A0F2 /* Products */,
@@ -108,6 +120,7 @@
 				D4D9ED0126A8B5960084EF2E /* Actions */,
 				D4D9ED0026A8B5590084EF2E /* Reducers */,
 				D4D9ED0326A8B6C00084EF2E /* Components */,
+				D4D9ED0526A8B92E0084EF2E /* Screens */,
 				D44C28BC269B855D0036A0F2 /* TMDB Service */,
 				D4D9ECF526A76A290084EF2E /* Utilities */,
 				D44C2892269B83F60036A0F2 /* Assets.xcassets */,
@@ -120,6 +133,7 @@
 		D44C2894269B83F60036A0F2 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				D4D9ED0C26A8BA2C0084EF2E /* Fake Data */,
 				D44C2895269B83F60036A0F2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -142,6 +156,7 @@
 				D44C28C8269B90670036A0F2 /* Utilities */,
 				D44C28BF269B891D0036A0F2 /* Models */,
 				D44C28BD269B85720036A0F2 /* MovieService.swift */,
+				D4D9ED0D26A8BABD0084EF2E /* MovieService+JSONDecoder.swift */,
 			);
 			path = "TMDB Service";
 			sourceTree = "<group>";
@@ -172,6 +187,14 @@
 			path = "Endpoint Parameters";
 			sourceTree = "<group>";
 		};
+		D45212DE26A8C6F80020A2CB /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				D45212DF26A8C6F80020A2CB /* SwiftRedux */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		D4C21A2D269E510000CBC058 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				D4E3830F26A4EC4A00336CB3 /* LoadableModel.swift */,
+				D4D9ED1226A8C2190084EF2E /* DateFormatter+Extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -225,7 +249,7 @@
 		D4D9ED0326A8B6C00084EF2E /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				D44C2890269B83F60036A0F2 /* FeedView.swift */,
+				D4D9ED0826A8B98C0084EF2E /* MovieListView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -236,6 +260,22 @@
 				D4D9ECF726A76BFB0084EF2E /* PopularMoviesTests.swift */,
 			);
 			path = Reducers;
+			sourceTree = "<group>";
+		};
+		D4D9ED0526A8B92E0084EF2E /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				D44C2890269B83F60036A0F2 /* FeedView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		D4D9ED0C26A8BA2C0084EF2E /* Fake Data */ = {
+			isa = PBXGroup;
+			children = (
+				D4D9ED0A26A8B9F00084EF2E /* FakeMovies.swift */,
+			);
+			path = "Fake Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,7 +295,8 @@
 			);
 			name = "MovieDB-SwiftRedux";
 			packageProductDependencies = (
-				D4D9ECF326A769DD0084EF2E /* SwiftRedux */,
+				D4D9ED1026A8BBD00084EF2E /* Kingfisher */,
+				D45212E026A8C75E0020A2CB /* SwiftRedux */,
 			);
 			productName = "MovieDB-SwiftRedux";
 			productReference = D44C288B269B83F60036A0F2 /* MovieDB-SwiftRedux.app */;
@@ -307,7 +348,7 @@
 			);
 			mainGroup = D44C2882269B83F60036A0F2;
 			packageReferences = (
-				D4D9ECF226A769DD0084EF2E /* XCRemoteSwiftPackageReference "SwiftRedux" */,
+				D4D9ED0F26A8BBD00084EF2E /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = D44C288C269B83F60036A0F2 /* Products */;
 			projectDirPath = "";
@@ -344,9 +385,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D44C28C5269B89530036A0F2 /* GenreID.swift in Sources */,
+				D4D9ED0926A8B98C0084EF2E /* MovieListView.swift in Sources */,
 				D44C28CA269B906F0036A0F2 /* URLBuilder.swift in Sources */,
 				D44C28CD269B90CE0036A0F2 /* TimeWindow.swift in Sources */,
 				D44C28D0269B939B0036A0F2 /* AppState.swift in Sources */,
+				D4D9ED0E26A8BABD0084EF2E /* MovieService+JSONDecoder.swift in Sources */,
 				D44C28C1269B89260036A0F2 /* MediaType.swift in Sources */,
 				D44C28C7269B89600036A0F2 /* Movie.swift in Sources */,
 				D44C28BE269B85720036A0F2 /* MovieService.swift in Sources */,
@@ -354,8 +397,10 @@
 				D4E3831026A4EC4A00336CB3 /* LoadableModel.swift in Sources */,
 				D4E3830E26A4EC2E00336CB3 /* PopularMoviesAction.swift in Sources */,
 				D44C288F269B83F60036A0F2 /* MainApp.swift in Sources */,
+				D4D9ED0B26A8B9F00084EF2E /* FakeMovies.swift in Sources */,
 				D44C28D7269B94020036A0F2 /* PopularMovies.swift in Sources */,
 				D44C28D5269B93EA0036A0F2 /* RootReducer.swift in Sources */,
+				D4D9ED1326A8C2190084EF2E /* DateFormatter+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,21 +658,25 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D4D9ECF226A769DD0084EF2E /* XCRemoteSwiftPackageReference "SwiftRedux" */ = {
+		D4D9ED0F26A8BBD00084EF2E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/lucaslimapoa/SwiftRedux";
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.2;
+				minimumVersion = 6.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D4D9ECF326A769DD0084EF2E /* SwiftRedux */ = {
+		D45212E026A8C75E0020A2CB /* SwiftRedux */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D4D9ECF226A769DD0084EF2E /* XCRemoteSwiftPackageReference "SwiftRedux" */;
 			productName = SwiftRedux;
+		};
+		D4D9ED1026A8BBD00084EF2E /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4D9ED0F26A8BBD00084EF2E /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -2,12 +2,12 @@
   "object": {
     "pins": [
       {
-        "package": "SwiftRedux",
-        "repositoryURL": "https://github.com/lucaslimapoa/SwiftRedux",
+        "package": "Kingfisher",
+        "repositoryURL": "https://github.com/onevcat/Kingfisher",
         "state": {
           "branch": null,
-          "revision": "86849505c9da2c9851539e3088ee9d944b89d45f",
-          "version": "0.1.2"
+          "revision": "44450a8f564d7c0165f736ba2250649ff8d3e556",
+          "version": "6.3.0"
         }
       }
     ]

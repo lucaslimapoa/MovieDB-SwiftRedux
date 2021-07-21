@@ -13,10 +13,31 @@ struct Movie: Decodable {
     let overview: String
     let releaseDate: Date?
     let isAdult: Bool?
-    let backdropPath: String?
+    let backdropPath: TMDBImageURL?
     let genreIds: [GenreID]?
     let voteCount: Int?
     let voteAverage: Double?
     let mediaType: MediaType?
-    let posterPath: String?
+    let posterPath: TMDBImageURL?
+}
+
+@propertyWrapper
+struct TMDBImageURL: Decodable {
+    var wrappedValue: URL
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let stringURL = try container.decode(String.self)
+        
+        guard let url = URL(string: "https://image.tmdb.org/t/p/original\(stringURL)") else {
+            throw DecodingError.dataCorrupted(
+                DecodingError.Context(
+                    codingPath: decoder.codingPath,
+                    debugDescription: "Not possible to create URL from \(stringURL)"
+                )
+            )
+        }
+        
+        wrappedValue = url
+    }
 }
