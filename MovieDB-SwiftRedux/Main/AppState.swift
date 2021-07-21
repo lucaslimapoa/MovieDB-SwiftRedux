@@ -8,5 +8,5 @@
 import Foundation
 
 struct AppState {
-    var feedState = FeedState()
+    var popularMovies: LoadableModel<[Movie]> = .loading(nil)
 }

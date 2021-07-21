@@ -9,4 +9,4 @@ import Foundation
 import SwiftRedux
 
 let rootReducer = CombinedReducer<AppState>
-    .apply(reducer: feedReducer, for: \.feedState)
+    .apply(reducer: popularMovies, for: \.popularMovies)

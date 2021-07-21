@@ -10,33 +10,33 @@ import Combine
 import SwiftRedux
 import XCTest
 
-class FeedReducerTests: XCTestCase {
-    var store: Store<FeedState>!
+class PopularMoviesTests: XCTestCase {
+    var store: Store<LoadableModel<[Movie]>>!
     var cancellables: Set<AnyCancellable>!
     
     override func setUp() {
         super.setUp()
-        store = Store<FeedState>(
-            initialState: FeedState(),
-            reducer: feedReducer,
+        store = Store<LoadableModel<[Movie]>>(
+            initialState: .loading(nil),
+            reducer: popularMovies,
             middleware: [.thunkMiddleware]
         )
         cancellables = []
     }
     
     func testFeedActionFetchSuccessSetsPopularMoviesStateToLoadedWithMovies() {
-        store.dispatch(action: FeedAction.fetchSuccess(fakeMovies))
-        XCTAssertEqual(store.state, FeedState(popularMovies: .loaded(fakeMovies)))
+        store.dispatch(action: PopularMoviesAction.success(fakeMovies))
+        XCTAssertEqual(store.state, .loaded(fakeMovies))
     }
     
     func testFeedActionFetchErrorSetsPopularMoviesStateToError() {
-        store.dispatch(action: FeedAction.fetchError)
-        XCTAssertEqual(store.state, FeedState(popularMovies: .error))
+        store.dispatch(action: PopularMoviesAction.error)
+        XCTAssertEqual(store.state, .error)
     }
     
     func testFeedActionFetchLoadingSetsPopularMoviesStateToLoading() {
-        store.dispatch(action: FeedAction.fetchLoading)
-        XCTAssertEqual(store.state, FeedState(popularMovies: .loading(nil)))
+        store.dispatch(action: PopularMoviesAction.loading)
+        XCTAssertEqual(store.state, .loading(nil))
     }
     
     func testFeedActionFetchPopularMoviesInitiatedSetsStateToLoading() {
@@ -44,9 +44,9 @@ class FeedReducerTests: XCTestCase {
         service.trendingStub = Empty(completeImmediately: true)
             .eraseToAnyPublisher()
         
-        store.dispatch(action: FeedAction.fetchPopularMovies(service: service))
+        store.dispatch(action: PopularMoviesAction.fetch(service: service))
 
-        XCTAssertEqual(store.state, FeedState(popularMovies: .loading(nil)))
+        XCTAssertEqual(store.state, .loading(nil))
     }
     
     func testFeedActionFetchPopularMoviesSuccessSetsStateToLoaded() {
@@ -60,12 +60,12 @@ class FeedReducerTests: XCTestCase {
         store.$state
             .dropFirst(2)
             .sink { newState in
-                XCTAssertEqual(newState, FeedState(popularMovies: .loaded(fakeMovies)))
+                XCTAssertEqual(newState, .loaded(fakeMovies))
                 expectation.fulfill()
             }
             .store(in: &cancellables)
         
-        store.dispatch(action: FeedAction.fetchPopularMovies(service: service))
+        store.dispatch(action: PopularMoviesAction.fetch(service: service))
                 
         waitForExpectations(timeout: 1)
     }
@@ -80,12 +80,12 @@ class FeedReducerTests: XCTestCase {
         store.$state
             .dropFirst(2)
             .sink { newState in
-                XCTAssertEqual(newState, FeedState(popularMovies: .error))
+                XCTAssertEqual(newState, .error)
                 expectation.fulfill()
             }
             .store(in: &cancellables)
         
-        store.dispatch(action: FeedAction.fetchPopularMovies(service: service))
+        store.dispatch(action: PopularMoviesAction.fetch(service: service))
                 
         waitForExpectations(timeout: 1)
     }
@@ -102,6 +102,7 @@ private final class MovieServiceMock: MovieService {
 private let fakeMovies = [
     Movie(
         id: 0,
+        title: "title",
         overview: "some overview",
         releaseDate: nil,
         isAdult: nil,

@@ -7,9 +7,9 @@
 
 @testable import MovieDB_SwiftRedux
 
-extension FeedState: Equatable {
-    public static func == (lhs: FeedState, rhs: FeedState) -> Bool {
-        switch (lhs.popularMovies, rhs.popularMovies) {
+extension LoadableModel: Equatable where T == [Movie] {
+    public static func == (lhs: LoadableModel<T>, rhs: LoadableModel<T>) -> Bool {
+        switch (lhs, rhs) {
         case (.loading(let lhsLoading), .loading(let rhsLoading)):
             return lhsLoading == rhsLoading
         case (.loaded(let lhsLoaded), .loaded(let rhsLoaded)):

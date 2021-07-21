@@ -8,11 +8,13 @@
 import Foundation
 
 enum LoadableModel<T> {
-    case loading([T]?)
-    case loaded([T])
+    case loading(T?)
+    case loaded(T)
     case error
-    
-    var items: [T]? {
+}
+
+extension LoadableModel where T: Collection {
+    var items: T? {
         switch self {
         case .loaded(let items):
             return items

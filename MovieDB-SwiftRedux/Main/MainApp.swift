@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftRedux
 
 @main
-struct MovieDBApp: App {
+struct MainApp: App {
     var body: some Scene {
         let store = Store<AppState>(
             initialState: AppState(),
@@ -20,7 +20,7 @@ struct MovieDBApp: App {
         )
         
         return WindowGroup {
-            FeedView(store: store.scope(state: \.feedState))
+            FeedView(store: store)
                 .environmentObject(store)
         }
     }
