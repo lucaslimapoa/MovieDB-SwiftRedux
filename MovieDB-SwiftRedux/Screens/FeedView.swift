@@ -12,18 +12,23 @@ struct FeedView: View {
     @ObservedObject var store: Store<AppState>
     
     var body: some View {
-        LazyVStack(alignment: .leading, spacing: 16) {
-            popularMoviesSection(store: store.scope(state: \.popularMovies))
+        NavigationView {
+            LazyVStack(alignment: .leading, spacing: 16) {
+                popularMoviesSection(store: store.scope(state: \.popularMovies))
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+            .edgesIgnoringSafeArea(.horizontal)
+            .navigationBarTitle("TMDB Redux")
+            .navigationBarTitleDisplayMode(.large)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .padding()
     }
     
     private func popularMoviesSection(store: Store<LoadableModel<[Movie]>>) -> some View {
-        VStack(alignment: .leading, spacing: 16) {
+        VStack(alignment: .leading, spacing: 8) {
             Text("Popular Movies")
                 .foregroundColor(.primary)
                 .font(.headline)
+                .padding(.horizontal)
             
             switch store.state {
             case .loading:

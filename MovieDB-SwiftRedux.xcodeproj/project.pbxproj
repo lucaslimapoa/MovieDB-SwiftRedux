@@ -21,6 +21,7 @@
 		D44C28D5269B93EA0036A0F2 /* RootReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C28D4269B93EA0036A0F2 /* RootReducer.swift */; };
 		D44C28D7269B94020036A0F2 /* PopularMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C28D6269B94020036A0F2 /* PopularMovies.swift */; };
 		D45212E126A8C75E0020A2CB /* SwiftRedux in Frameworks */ = {isa = PBXBuildFile; productRef = D45212E026A8C75E0020A2CB /* SwiftRedux */; };
+		D4A8EFB526A8DBD800DF1AB0 /* SwiftRedux in Frameworks */ = {isa = PBXBuildFile; productRef = D4A8EFB426A8DBD800DF1AB0 /* SwiftRedux */; };
 		D4D9ECF826A76BFB0084EF2E /* PopularMoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D9ECF726A76BFB0084EF2E /* PopularMoviesTests.swift */; };
 		D4D9ECFC26A76F120084EF2E /* LoadableModel+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D9ECFB26A76F120084EF2E /* LoadableModel+Equatable.swift */; };
 		D4D9ECFE26A76F330084EF2E /* Movie+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D9ECFD26A76F330084EF2E /* Movie+Equatable.swift */; };
@@ -61,7 +62,6 @@
 		D44C28CF269B939B0036A0F2 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		D44C28D4269B93EA0036A0F2 /* RootReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootReducer.swift; sourceTree = "<group>"; };
 		D44C28D6269B94020036A0F2 /* PopularMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMovies.swift; sourceTree = "<group>"; };
-		D45212DF26A8C6F80020A2CB /* SwiftRedux */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftRedux; path = ../SwiftRedux; sourceTree = "<group>"; };
 		D4D9ECF726A76BFB0084EF2E /* PopularMoviesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesTests.swift; sourceTree = "<group>"; };
 		D4D9ECFB26A76F120084EF2E /* LoadableModel+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoadableModel+Equatable.swift"; sourceTree = "<group>"; };
 		D4D9ECFD26A76F330084EF2E /* Movie+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+Equatable.swift"; sourceTree = "<group>"; };
@@ -78,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4A8EFB526A8DBD800DF1AB0 /* SwiftRedux in Frameworks */,
 				D4D9ED1126A8BBD00084EF2E /* Kingfisher in Frameworks */,
 				D45212E126A8C75E0020A2CB /* SwiftRedux in Frameworks */,
 			);
@@ -96,7 +97,6 @@
 		D44C2882269B83F60036A0F2 = {
 			isa = PBXGroup;
 			children = (
-				D45212DE26A8C6F80020A2CB /* Packages */,
 				D44C288D269B83F60036A0F2 /* MovieDB-SwiftRedux */,
 				D44C289F269B83F70036A0F2 /* MovieDB-SwiftReduxTests */,
 				D44C288C269B83F60036A0F2 /* Products */,
@@ -185,14 +185,6 @@
 				D44C28CC269B90CE0036A0F2 /* TimeWindow.swift */,
 			);
 			path = "Endpoint Parameters";
-			sourceTree = "<group>";
-		};
-		D45212DE26A8C6F80020A2CB /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				D45212DF26A8C6F80020A2CB /* SwiftRedux */,
-			);
-			name = Packages;
 			sourceTree = "<group>";
 		};
 		D4C21A2D269E510000CBC058 /* Frameworks */ = {
@@ -297,6 +289,7 @@
 			packageProductDependencies = (
 				D4D9ED1026A8BBD00084EF2E /* Kingfisher */,
 				D45212E026A8C75E0020A2CB /* SwiftRedux */,
+				D4A8EFB426A8DBD800DF1AB0 /* SwiftRedux */,
 			);
 			productName = "MovieDB-SwiftRedux";
 			productReference = D44C288B269B83F60036A0F2 /* MovieDB-SwiftRedux.app */;
@@ -349,6 +342,7 @@
 			mainGroup = D44C2882269B83F60036A0F2;
 			packageReferences = (
 				D4D9ED0F26A8BBD00084EF2E /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				D4A8EFB326A8DBD800DF1AB0 /* XCRemoteSwiftPackageReference "SwiftRedux" */,
 			);
 			productRefGroup = D44C288C269B83F60036A0F2 /* Products */;
 			projectDirPath = "";
@@ -548,6 +542,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"MovieDB-SwiftRedux/Preview Content\"";
+				DEVELOPMENT_TEAM = HGYG7SB23F;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "MovieDB-SwiftRedux/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -569,6 +564,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"MovieDB-SwiftRedux/Preview Content\"";
+				DEVELOPMENT_TEAM = HGYG7SB23F;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "MovieDB-SwiftRedux/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -658,6 +654,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D4A8EFB326A8DBD800DF1AB0 /* XCRemoteSwiftPackageReference "SwiftRedux" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lucaslimapoa/SwiftRedux";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.3;
+			};
+		};
 		D4D9ED0F26A8BBD00084EF2E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
@@ -671,6 +675,11 @@
 /* Begin XCSwiftPackageProductDependency section */
 		D45212E026A8C75E0020A2CB /* SwiftRedux */ = {
 			isa = XCSwiftPackageProductDependency;
+			productName = SwiftRedux;
+		};
+		D4A8EFB426A8DBD800DF1AB0 /* SwiftRedux */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4A8EFB326A8DBD800DF1AB0 /* XCRemoteSwiftPackageReference "SwiftRedux" */;
 			productName = SwiftRedux;
 		};
 		D4D9ED1026A8BBD00084EF2E /* Kingfisher */ = {

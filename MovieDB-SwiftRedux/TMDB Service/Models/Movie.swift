@@ -29,7 +29,7 @@ struct TMDBImageURL: Decodable {
         let container = try decoder.singleValueContainer()
         let stringURL = try container.decode(String.self)
         
-        guard let url = URL(string: "https://image.tmdb.org/t/p/original\(stringURL)") else {
+        guard let url = URL(string: "https://image.tmdb.org/t/p/w342\(stringURL)") else {
             throw DecodingError.dataCorrupted(
                 DecodingError.Context(
                     codingPath: decoder.codingPath,

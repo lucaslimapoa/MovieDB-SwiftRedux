@@ -18,8 +18,7 @@ class PopularMoviesTests: XCTestCase {
         super.setUp()
         store = Store<LoadableModel<[Movie]>>(
             initialState: .loading(nil),
-            reducer: popularMovies,
-            middleware: [.thunkMiddleware]
+            reducer: popularMovies
         )
         cancellables = []
     }

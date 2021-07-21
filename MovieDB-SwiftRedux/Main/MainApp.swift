@@ -13,10 +13,7 @@ struct MainApp: App {
     var body: some Scene {
         let store = Store<AppState>(
             initialState: AppState(),
-            reducer: rootReducer,
-            middleware: [
-                .thunkMiddleware
-            ]
+            reducer: rootReducer
         )
         
         return WindowGroup {
