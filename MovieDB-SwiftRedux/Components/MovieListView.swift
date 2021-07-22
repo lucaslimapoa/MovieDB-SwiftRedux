@@ -19,14 +19,14 @@ struct MovieListView: View {
              
                 LazyHStack(alignment: .top, spacing: 12) {
                     ForEach(movies, id: \.id) { movie in
-                        VStack(alignment: .leading) {
+                        VStack(alignment: .leading, spacing: 4) {
                             if let posterURL = movie.posterPath {
                                 KFImage.url(posterURL.wrappedValue)
                                     .placeholder { placeholderImage(shouldShowProgress: true) }
                                     .fade(duration: 0.35)
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
-                                    .frame(height: 160)
+                                    .frame(height: 145)
                                     .cornerRadius(4)
                             } else {
                                 placeholderImage(shouldShowProgress: false)
@@ -45,7 +45,7 @@ struct MovieListView: View {
                                     .font(.system(size: 11, weight: .regular))
                             }
                         }
-                        .frame(width: 120)
+                        .frame(width: 105)
                     }
                 }
                 

@@ -13,36 +13,46 @@ struct FeedView: View {
     
     var body: some View {
         NavigationView {
-            LazyVStack(alignment: .leading, spacing: 16) {
-                popularMoviesSection(store: store.scope(state: \.popularMovies))
+            ScrollView {
+                VStack(alignment: .leading, spacing: 16) {
+                    MoviesSectionView(header: "Popular Movies", model: store.state.popularMovies)
+                        .onAppear { store.dispatch(action: PopularMoviesAction.fetch()) }                    
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                .edgesIgnoringSafeArea(.horizontal)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-            .edgesIgnoringSafeArea(.horizontal)
             .navigationBarTitle("TMDB Redux")
             .navigationBarTitleDisplayMode(.large)
         }
     }
+}
+
+private struct MoviesSectionView: View {
+    let header: String
+    let model: LoadableModel<[Movie]>
     
-    private func popularMoviesSection(store: Store<LoadableModel<[Movie]>>) -> some View {
+    var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("Popular Movies")
+            Text(header)
                 .foregroundColor(.primary)
                 .font(.headline)
                 .padding(.horizontal)
             
-            switch store.state {
+            switch model {
             case .loading:
                 ProgressView()
                     .frame(maxWidth: .infinity, minHeight: 135, alignment: .center)
+                
             case .error:
                 Text("Something went wrong")
                     .foregroundColor(.primary)
                     .font(.largeTitle)
+                
             case let .loaded(movies):
                 MovieListView(movies: movies)
             }
         }
-        .onAppear { store.dispatch(action: PopularMoviesAction.fetch()) }
+        .frame(minHeight: 240, maxHeight: .infinity)
     }
 }
 
@@ -50,7 +60,9 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         FeedView(
             store: Store<AppState>(
-                initialState: AppState(),
+                initialState: AppState(
+                    popularMovies: .loaded(.fakeMovies)
+                ),
                 reducer: rootReducer
             )
         )
