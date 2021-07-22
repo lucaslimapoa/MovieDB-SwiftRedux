@@ -11,31 +11,34 @@ import SwiftRedux
 import XCTest
 
 class PopularMoviesTests: XCTestCase {
-    var store: Store<LoadableModel<[Movie]>>!
+    var store: Store<AppState>!
     var cancellables: Set<AnyCancellable>!
     
     override func setUp() {
         super.setUp()
-        store = Store<LoadableModel<[Movie]>>(
-            initialState: .loading(nil),
-            reducer: popularMovies
+        store = Store<AppState>(
+            initialState: AppState(
+                popularMovies: .loading(nil)
+            ),
+            reducer: CombinedReducer<AppState>
+                .apply(reducer: popularMovies, for: \.popularMovies)
         )
         cancellables = []
     }
     
     func testFeedActionFetchSuccessSetsPopularMoviesStateToLoadedWithMovies() {
         store.dispatch(action: PopularMoviesAction.success(fakeMovies))
-        XCTAssertEqual(store.state, .loaded(fakeMovies))
+        XCTAssertEqual(store.state.popularMovies, .loaded(fakeMovies))
     }
     
     func testFeedActionFetchErrorSetsPopularMoviesStateToError() {
         store.dispatch(action: PopularMoviesAction.error)
-        XCTAssertEqual(store.state, .error)
+        XCTAssertEqual(store.state.popularMovies, .error)
     }
     
     func testFeedActionFetchLoadingSetsPopularMoviesStateToLoading() {
         store.dispatch(action: PopularMoviesAction.loading)
-        XCTAssertEqual(store.state, .loading(nil))
+        XCTAssertEqual(store.state.popularMovies, .loading(nil))
     }
     
     func testFeedActionFetchPopularMoviesInitiatedSetsStateToLoading() {
@@ -45,7 +48,7 @@ class PopularMoviesTests: XCTestCase {
         
         store.dispatch(action: PopularMoviesAction.fetch(service: service))
 
-        XCTAssertEqual(store.state, .loading(nil))
+        XCTAssertEqual(store.state.popularMovies, .loading(nil))
     }
     
     func testFeedActionFetchPopularMoviesSuccessSetsStateToLoaded() {
@@ -57,9 +60,9 @@ class PopularMoviesTests: XCTestCase {
             .eraseToAnyPublisher()
         
         store.$state
-            .dropFirst(2)
+            .dropFirst(3)
             .sink { newState in
-                XCTAssertEqual(newState, .loaded(fakeMovies))
+                XCTAssertEqual(newState.popularMovies, .loaded(fakeMovies))
                 expectation.fulfill()
             }
             .store(in: &cancellables)
@@ -77,9 +80,9 @@ class PopularMoviesTests: XCTestCase {
             .eraseToAnyPublisher()
         
         store.$state
-            .dropFirst(2)
+            .dropFirst(3)
             .sink { newState in
-                XCTAssertEqual(newState, .error)
+                XCTAssertEqual(newState.popularMovies, .error)
                 expectation.fulfill()
             }
             .store(in: &cancellables)
@@ -92,7 +95,7 @@ class PopularMoviesTests: XCTestCase {
 
 private final class MovieServiceMock: MovieService {
     var trendingStub: AnyPublisher<[Movie], MovieServiceError>?
-    func popular() -> AnyPublisher<[Movie], MovieServiceError> {
+    func popularMovies() -> AnyPublisher<[Movie], MovieServiceError> {
         guard let trendingStub = trendingStub else { fatalError("trendingStub not configured") }
         return trendingStub
     }

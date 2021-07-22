@@ -14,9 +14,9 @@ enum PopularMoviesAction: Action {
     case error
     case loading
     
-    static func fetch(service: MovieService = MovieDbService()) -> ThunkPublisher<AppState> {
+    static func fetch(service: MovieService = TMDBService()) -> ThunkPublisher<AppState> {
         ThunkPublisher { store in
-            service.popular()
+            service.popularMovies()
                 .handleEvents(
                     receiveSubscription: { _ in
                         store.dispatch(loading)

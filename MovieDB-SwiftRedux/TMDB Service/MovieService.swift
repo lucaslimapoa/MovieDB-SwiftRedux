@@ -14,10 +14,10 @@ enum MovieServiceError: Error {
 }
 
 protocol MovieService {
-    func popular() -> AnyPublisher<[Movie], MovieServiceError>
+    func popularMovies() -> AnyPublisher<[Movie], MovieServiceError>
 }
 
-final class MovieDbService: MovieService {
+final class TMDBService: MovieService {
     private let session: URLSession
     private let apiKey: String
     private let baseURL = URL(string: "https://api.themoviedb.org/3")!
@@ -28,21 +28,32 @@ final class MovieDbService: MovieService {
         self.apiKey = apiKey
     }
     
-    func popular() -> AnyPublisher<[Movie], MovieServiceError> {
-        guard let request = URLBuilder()
+    private func buildRequest(path: String) -> URLRequest? {
+        URLBuilder()
             .with(baseURL: baseURL)
-            .with(path: "movie/popular")
+            .with(path: path)
             .with(apiKey: apiKey)
-                .build() else { return Fail(error: .invalidURL).eraseToAnyPublisher() }
+            .build()
+    }
+    
+    private func request<T>(urlRequest: URLRequest, response: T.Type) -> AnyPublisher<T, MovieServiceError> where T: Decodable {
+        session.dataTaskPublisher(for: urlRequest)
+            .map(\.data)
+            .decode(type: T.self, decoder: jsonDecoder)
+            .mapError { .decodeFailed(wrapped: $0) }
+            .eraseToAnyPublisher()
+    }
+    
+    func popularMovies() -> AnyPublisher<[Movie], MovieServiceError> {
+        guard let urlRequest = buildRequest(path: "movie/popular") else {
+            return Fail(error: .invalidURL).eraseToAnyPublisher()
+        }
         
         struct MovieResponse: Decodable {
             let results: [Movie]
         }
         
-        return session.dataTaskPublisher(for: request)
-            .map(\.data)
-            .decode(type: MovieResponse.self, decoder: jsonDecoder)
-            .mapError { .decodeFailed(wrapped: $0) }
+        return request(urlRequest: urlRequest, response: MovieResponse.self)
             .map(\.results)
             .eraseToAnyPublisher()
     }
