@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum LoadableModel<T> {
+public enum LoadableModel<T>: Equatable where T: Equatable {
     case loading(T?)
     case loaded(T)
     case error

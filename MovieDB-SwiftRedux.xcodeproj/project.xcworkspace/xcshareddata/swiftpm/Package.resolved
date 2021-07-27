@@ -9,15 +9,6 @@
           "revision": "44450a8f564d7c0165f736ba2250649ff8d3e556",
           "version": "6.3.0"
         }
-      },
-      {
-        "package": "SwiftRedux",
-        "repositoryURL": "https://github.com/lucaslimapoa/SwiftRedux",
-        "state": {
-          "branch": null,
-          "revision": "1191d62789cbffec986008ba4fc9e958946eb7d2",
-          "version": "0.1.4"
-        }
       }
     ]
   },

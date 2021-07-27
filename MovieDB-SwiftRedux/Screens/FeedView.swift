@@ -16,7 +16,7 @@ struct FeedView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
                     MoviesSectionView(header: "Popular Movies", model: store.state.popularMovies)
-                        .onAppear { store.dispatch(action: PopularMoviesAction.fetch()) }                    
+                        .onAppear { store.dispatch(action: PopularMoviesAction.fetch()) }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                 .edgesIgnoringSafeArea(.horizontal)
@@ -63,7 +63,7 @@ struct ContentView_Previews: PreviewProvider {
                 initialState: AppState(
                     popularMovies: .loaded(.fakeMovies)
                 ),
-                reducer: rootReducer
+                reducer: appReducer
             )
         )
     }

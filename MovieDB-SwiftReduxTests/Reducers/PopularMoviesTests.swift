@@ -21,7 +21,8 @@ class PopularMoviesTests: XCTestCase {
                 popularMovies: .loading(nil)
             ),
             reducer: CombinedReducer<AppState>
-                .apply(reducer: popularMovies, for: \.popularMovies)
+                .apply(reducer: PopularMovies(), for: \.popularMovies),
+            middleware: ThunkMiddleware()
         )
         cancellables = []
     }
@@ -59,10 +60,10 @@ class PopularMoviesTests: XCTestCase {
             .setFailureType(to: MovieServiceError.self)
             .eraseToAnyPublisher()
         
-        store.$state
-            .dropFirst(3)
-            .sink { newState in
-                XCTAssertEqual(newState.popularMovies, .loaded(fakeMovies))
+        store.objectWillChange
+            .receive(on: DispatchQueue.main) // Add a TestStore that can improve this behavior.
+            .sink { _ in
+                XCTAssertEqual(self.store.state.popularMovies, .loaded(fakeMovies))
                 expectation.fulfill()
             }
             .store(in: &cancellables)
@@ -79,10 +80,10 @@ class PopularMoviesTests: XCTestCase {
         service.trendingStub = Fail(error: MovieServiceError.invalidURL)
             .eraseToAnyPublisher()
         
-        store.$state
-            .dropFirst(3)
-            .sink { newState in
-                XCTAssertEqual(newState.popularMovies, .error)
+        store.objectWillChange
+            .receive(on: DispatchQueue.main)
+            .sink { _ in
+                XCTAssertEqual(self.store.state.popularMovies, .error)
                 expectation.fulfill()
             }
             .store(in: &cancellables)

@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct AppState {
+struct AppState: Equatable {
     var popularMovies: LoadableModel<[Movie]> = .loading(nil)
 }

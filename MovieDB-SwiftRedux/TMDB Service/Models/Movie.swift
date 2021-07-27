@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Movie: Decodable {
+struct Movie: Decodable, Equatable {
     let id: Int
     let title: String
     let overview: String
@@ -22,7 +22,7 @@ struct Movie: Decodable {
 }
 
 @propertyWrapper
-struct TMDBImageURL: Decodable {
+struct TMDBImageURL: Decodable, Equatable {
     var wrappedValue: URL
 
     init(from decoder: Decoder) throws {

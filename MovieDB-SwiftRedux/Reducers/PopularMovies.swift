@@ -8,13 +8,15 @@
 import Foundation
 import SwiftRedux
 
-let popularMovies = Reducer<LoadableModel<[Movie]>, PopularMoviesAction> { state, action in
-    switch action {
-    case .success(let movies):
-        state = .loaded(movies)
-    case .error:
-        state = .error
-    case .loading:
-        state = .loading(state.items)
+struct PopularMovies: Reducer {
+    func reduce(state: inout LoadableModel<[Movie]>, action: PopularMoviesAction) {
+        switch action {
+        case .success(let movies):
+            state = .loaded(movies)
+        case .error:
+            state = .error
+        case .loading:
+            state = .loading(state.items)
+        }
     }
 }
