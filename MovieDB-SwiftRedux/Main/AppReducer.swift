@@ -9,4 +9,7 @@ import Foundation
 import SwiftRedux
 
 let appReducer = CombinedReducer<AppState>
-    .apply(reducer: PopularMovies(), for: \.popularMovies)
+    .apply(reducer: ContentReducer<PopularMovies>(), for: \.popularMovies)
+    .apply(reducer: ContentReducer<TopRatedMovies>(), for: \.topRatedMovies)
+    .apply(reducer: ContentReducer<PopularTvShows>(), for: \.popularTvShows)
+    .apply(reducer: ContentReducer<TopRatedTvShows>(), for: \.topRatedTvShows)

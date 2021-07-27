@@ -7,17 +7,17 @@
 
 import Foundation
 
-struct Movie: Decodable, Equatable {
+struct Content: Decodable, Equatable {
     let id: Int
-    let title: String
+    let title: String?
+    let name: String?
     let overview: String
     let releaseDate: Date?
+    let firstAirDate: Date?
     let isAdult: Bool?
     let backdropPath: TMDBImageURL?
-    let genreIds: [GenreID]?
     let voteCount: Int?
     let voteAverage: Double?
-    let mediaType: MediaType?
     let posterPath: TMDBImageURL?
 }
 

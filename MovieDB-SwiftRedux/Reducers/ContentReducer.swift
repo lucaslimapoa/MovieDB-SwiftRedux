@@ -1,5 +1,5 @@
 //
-//  FeedReducer.swift
+//  MoviesReducer.swift
 //  MovieDB-SwiftRedux
 //
 //  Created by Lucas Lima on 11.07.21.
@@ -8,8 +8,8 @@
 import Foundation
 import SwiftRedux
 
-struct PopularMovies: Reducer {
-    func reduce(state: inout LoadableModel<[Movie]>, action: PopularMoviesAction) {
+struct ContentReducer<T>: Reducer {
+    func reduce(state: inout LoadableModel<[Content]>, action: ContentAction<T>) {
         switch action {
         case .success(let movies):
             state = .loaded(movies)

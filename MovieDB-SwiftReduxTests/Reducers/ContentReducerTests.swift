@@ -1,6 +1,6 @@
 //
-//  FeedReducerTests.swift
-//  FeedReducerTests
+//  ContentReducerTests.swift
+//  ContentReducerTests
 //
 //  Created by Lucas Lima on 20.07.21.
 //
@@ -10,7 +10,7 @@ import Combine
 import SwiftRedux
 import XCTest
 
-class PopularMoviesTests: XCTestCase {
+class ContentReducerTests: XCTestCase {
     var store: Store<AppState>!
     var cancellables: Set<AnyCancellable>!
     
@@ -21,7 +21,7 @@ class PopularMoviesTests: XCTestCase {
                 popularMovies: .loading(nil)
             ),
             reducer: CombinedReducer<AppState>
-                .apply(reducer: PopularMovies(), for: \.popularMovies),
+                .apply(reducer: ContentReducer<PopularMovies>(), for: \.popularMovies),
             middleware: ThunkMiddleware()
         )
         cancellables = []
@@ -43,8 +43,8 @@ class PopularMoviesTests: XCTestCase {
     }
     
     func testFeedActionFetchPopularMoviesInitiatedSetsStateToLoading() {
-        let service = MovieServiceMock()
-        service.trendingStub = Empty(completeImmediately: true)
+        let service = ContentServiceMock()
+        service.contentStub = Empty(completeImmediately: true)
             .eraseToAnyPublisher()
         
         store.dispatch(action: PopularMoviesAction.fetch(service: service))
@@ -55,9 +55,9 @@ class PopularMoviesTests: XCTestCase {
     func testFeedActionFetchPopularMoviesSuccessSetsStateToLoaded() {
         let expectation = expectation(description: "should set state to loaded")
         
-        let service = MovieServiceMock()
-        service.trendingStub = Just<[Movie]>(fakeMovies)
-            .setFailureType(to: MovieServiceError.self)
+        let service = ContentServiceMock()
+        service.contentStub = Just<[Content]>(fakeMovies)
+            .setFailureType(to: ContentServiceError.self)
             .eraseToAnyPublisher()
         
         store.objectWillChange
@@ -76,8 +76,8 @@ class PopularMoviesTests: XCTestCase {
     func testFeedActionFetchPopularMoviesErrorSetsStateToError() {
         let expectation = expectation(description: "should set state to loaded")
         
-        let service = MovieServiceMock()
-        service.trendingStub = Fail(error: MovieServiceError.invalidURL)
+        let service = ContentServiceMock()
+        service.contentStub = Fail(error: ContentServiceError.invalidURL)
             .eraseToAnyPublisher()
         
         store.objectWillChange
@@ -94,26 +94,26 @@ class PopularMoviesTests: XCTestCase {
     }
 }
 
-private final class MovieServiceMock: MovieService {
-    var trendingStub: AnyPublisher<[Movie], MovieServiceError>?
-    func popularMovies() -> AnyPublisher<[Movie], MovieServiceError> {
-        guard let trendingStub = trendingStub else { fatalError("trendingStub not configured") }
-        return trendingStub
+private final class ContentServiceMock: ContentService {
+    var contentStub: AnyPublisher<[Content], ContentServiceError>?
+    func content(query: ContentQuery) -> AnyPublisher<[Content], ContentServiceError> {
+        guard let contentStub = contentStub else { fatalError("trendingStub not configured") }
+        return contentStub
     }
 }
 
 private let fakeMovies = [
-    Movie(
+    Content(
         id: 0,
         title: "title",
+        name: "name",
         overview: "some overview",
         releaseDate: nil,
+        firstAirDate: nil,
         isAdult: nil,
         backdropPath: nil,
-        genreIds: nil,
         voteCount: nil,
         voteAverage: nil,
-        mediaType: nil,
         posterPath: nil
     )
 ]

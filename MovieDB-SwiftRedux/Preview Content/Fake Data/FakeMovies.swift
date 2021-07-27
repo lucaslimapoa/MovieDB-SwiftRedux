@@ -7,9 +7,9 @@
 
 import Foundation
 
-extension Collection where Element == Movie {
-    static var fakeMovies: [Movie] {
-        try! JSONDecoder.tmdbJsonDecoder.decode([Movie].self, from: moviesJson)
+extension Collection where Element == Content {
+    static var fakeMovies: [Content] {
+        try! JSONDecoder.tmdbJsonDecoder.decode([Content].self, from: moviesJson)
     }
 }
 

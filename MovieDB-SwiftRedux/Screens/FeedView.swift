@@ -13,10 +13,19 @@ struct FeedView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 16) {
-                    MoviesSectionView(header: "Popular Movies", model: store.state.popularMovies)
+                    ContentSectionView(header: "Popular Movies", model: store.state.popularMovies)
                         .onAppear { store.dispatch(action: PopularMoviesAction.fetch()) }
+                    
+                    ContentSectionView(header: "Top Rated Movies", model: store.state.topRatedMovies)
+                        .onAppear { store.dispatch(action: TopRatedMoviesAction.fetch()) }
+                    
+                    ContentSectionView(header: "Popular TV Shows", model: store.state.popularTvShows)
+                        .onAppear { store.dispatch(action: PopularTvShowsAction.fetch()) }
+                    
+                    ContentSectionView(header: "Top Rated TV Shows", model: store.state.topRatedTvShows)
+                        .onAppear { store.dispatch(action: TopRatedTvShowsAction.fetch()) }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                 .edgesIgnoringSafeArea(.horizontal)
@@ -27,9 +36,9 @@ struct FeedView: View {
     }
 }
 
-private struct MoviesSectionView: View {
+private struct ContentSectionView: View {
     let header: String
-    let model: LoadableModel<[Movie]>
+    let model: LoadableModel<[Content]>
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -46,10 +55,11 @@ private struct MoviesSectionView: View {
             case .error:
                 Text("Something went wrong")
                     .foregroundColor(.primary)
-                    .font(.largeTitle)
+                    .font(.body)
+                    .frame(maxWidth: .infinity, minHeight: 135, alignment: .center)
                 
             case let .loaded(movies):
-                MovieListView(movies: movies)
+                ContentListView(content: movies)
             }
         }
         .frame(minHeight: 240, maxHeight: .infinity)
@@ -61,7 +71,9 @@ struct ContentView_Previews: PreviewProvider {
         FeedView(
             store: Store<AppState>(
                 initialState: AppState(
-                    popularMovies: .loaded(.fakeMovies)
+                    popularMovies: .loaded(.fakeMovies),
+                    topRatedMovies: .error,
+                    popularTvShows: .loading(nil)
                 ),
                 reducer: appReducer
             )
