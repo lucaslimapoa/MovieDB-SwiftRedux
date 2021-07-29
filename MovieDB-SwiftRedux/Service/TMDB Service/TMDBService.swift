@@ -48,9 +48,7 @@ final class TMDBService: ContentService {
         session.dataTaskPublisher(for: urlRequest)
             .map(\.data)
             .decode(type: T.self, decoder: jsonDecoder)
-            .mapError {
-                .decodeFailed(wrapped: $0)
-            }
+            .mapError(ContentServiceError.decodeFailed)
             .eraseToAnyPublisher()
     }
 }
