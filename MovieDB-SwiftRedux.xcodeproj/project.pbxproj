@@ -31,6 +31,7 @@
 		D4D9ED1326A8C2190084EF2E /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D9ED1226A8C2190084EF2E /* DateFormatter+Extensions.swift */; };
 		D4E3830E26A4EC2E00336CB3 /* ContentAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3830D26A4EC2E00336CB3 /* ContentAction.swift */; };
 		D4E3831026A4EC4A00336CB3 /* LoadableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3830F26A4EC4A00336CB3 /* LoadableModel.swift */; };
+		D4EB9A9526B29E1400967623 /* TMDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EB9A9426B29E1400967623 /* TMDBService.swift */; };
 		D4F8055D26B22AF600C59D39 /* ContentSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F8055C26B22AF600C59D39 /* ContentSectionView.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		D4D9ED1226A8C2190084EF2E /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
 		D4E3830D26A4EC2E00336CB3 /* ContentAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentAction.swift; sourceTree = "<group>"; };
 		D4E3830F26A4EC4A00336CB3 /* LoadableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableModel.swift; sourceTree = "<group>"; };
+		D4EB9A9426B29E1400967623 /* TMDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBService.swift; sourceTree = "<group>"; };
 		D4F8055C26B22AF600C59D39 /* ContentSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,13 +118,13 @@
 		D44C288D269B83F60036A0F2 /* MovieDB-SwiftRedux */ = {
 			isa = PBXGroup;
 			children = (
+				D4EB9A9326B29DFA00967623 /* Service */,
 				D4D9ECFF26A8B5390084EF2E /* Main */,
 				D4D9ED0126A8B5960084EF2E /* Actions */,
 				D4D9ED0026A8B5590084EF2E /* Reducers */,
 				D4658B6026B299E1005972E5 /* Models */,
 				D4D9ED0326A8B6C00084EF2E /* Components */,
 				D4D9ED0526A8B92E0084EF2E /* Screens */,
-				D44C28BC269B855D0036A0F2 /* TMDB Service */,
 				D4D9ECF526A76A290084EF2E /* Utilities */,
 				D44C2892269B83F60036A0F2 /* Assets.xcassets */,
 				D44C2897269B83F60036A0F2 /* Info.plist */,
@@ -155,8 +157,8 @@
 				D44C28CB269B90C00036A0F2 /* Endpoint Parameters */,
 				D44C28C8269B90670036A0F2 /* Utilities */,
 				D44C28BF269B891D0036A0F2 /* Models */,
-				D44C28BD269B85720036A0F2 /* ContentService.swift */,
 				D4D9ED0D26A8BABD0084EF2E /* MovieService+JSONDecoder.swift */,
+				D4EB9A9426B29E1400967623 /* TMDBService.swift */,
 			);
 			path = "TMDB Service";
 			sourceTree = "<group>";
@@ -270,6 +272,15 @@
 			path = "Fake Data";
 			sourceTree = "<group>";
 		};
+		D4EB9A9326B29DFA00967623 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D44C28BD269B85720036A0F2 /* ContentService.swift */,
+				D44C28BC269B855D0036A0F2 /* TMDB Service */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -378,6 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4EB9A9526B29E1400967623 /* TMDBService.swift in Sources */,
 				D4D9ED0926A8B98C0084EF2E /* ContentListView.swift in Sources */,
 				D44C28CA269B906F0036A0F2 /* URLBuilder.swift in Sources */,
 				D44C28CD269B90CE0036A0F2 /* TimeWindow.swift in Sources */,

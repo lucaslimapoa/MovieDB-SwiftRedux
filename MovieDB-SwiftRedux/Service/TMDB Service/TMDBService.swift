@@ -1,29 +1,12 @@
 //
-//  MovieService.swift
+//  TMDBService.swift
 //  MovieDB-SwiftRedux
 //
-//  Created by Lucas Lima on 11.07.21.
+//  Created by Lucas Lima on 29.07.21.
 //
 
 import Foundation
 import Combine
-
-enum ContentQuery {
-    case trending
-    case popularMovies
-    case topRatedMovies
-    case popularTvShows
-    case topRatedTvShows
-}
-
-enum ContentServiceError: Error {
-    case invalidURL
-    case decodeFailed(wrapped: Error)
-}
-
-protocol ContentService {
-    func content(query: ContentQuery) -> AnyPublisher<[Content], ContentServiceError>
-}
 
 final class TMDBService: ContentService {
     private let session: URLSession
@@ -34,6 +17,23 @@ final class TMDBService: ContentService {
     init(session: URLSession = URLSession.shared, apiKey: String = "639a2c7eac5878745afcd2d2217be4bf") {
         self.session = session
         self.apiKey = apiKey
+    }
+    
+    func content(query: ContentQuery) -> AnyPublisher<[Content], ContentServiceError> {
+        guard let urlRequest = buildRequest(path: query.path) else {
+            return Fail(error: .invalidURL).eraseToAnyPublisher()
+        }
+        
+        struct ContentResponse: Decodable {
+            let results: [TMDBContent]
+        }
+        
+        let response: AnyPublisher<ContentResponse, ContentServiceError> = requestPublisher(urlRequest: urlRequest)
+        
+        return response
+            .map(\.results)
+            .compactMap { $0.compactMap(Content.init(tmdbContent:)) }
+            .eraseToAnyPublisher()
     }
     
     private func buildRequest(path: String) -> URLRequest? {
@@ -51,23 +51,6 @@ final class TMDBService: ContentService {
             .mapError {
                 .decodeFailed(wrapped: $0)
             }
-            .eraseToAnyPublisher()
-    }
-    
-    func content(query: ContentQuery) -> AnyPublisher<[Content], ContentServiceError> {
-        guard let urlRequest = buildRequest(path: query.path) else {
-            return Fail(error: .invalidURL).eraseToAnyPublisher()
-        }
-        
-        struct ContentResponse: Decodable {
-            let results: [TMDBContent]
-        }
-        
-        let response: AnyPublisher<ContentResponse, ContentServiceError> = requestPublisher(urlRequest: urlRequest)
-        
-        return response
-            .map(\.results)
-            .compactMap { $0.compactMap(Content.init(tmdbContent:)) }
             .eraseToAnyPublisher()
     }
 }
