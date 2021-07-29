@@ -15,12 +15,13 @@
 		D44C2893269B83F60036A0F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44C2892269B83F60036A0F2 /* Assets.xcassets */; };
 		D44C2896269B83F60036A0F2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44C2895269B83F60036A0F2 /* Preview Assets.xcassets */; };
 		D44C28BE269B85720036A0F2 /* ContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C28BD269B85720036A0F2 /* ContentService.swift */; };
-		D44C28C7269B89600036A0F2 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C28C6269B89600036A0F2 /* Content.swift */; };
+		D44C28C7269B89600036A0F2 /* TMDBContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C28C6269B89600036A0F2 /* TMDBContent.swift */; };
 		D44C28CA269B906F0036A0F2 /* URLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C28C9269B906F0036A0F2 /* URLBuilder.swift */; };
 		D44C28CD269B90CE0036A0F2 /* TimeWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C28CC269B90CE0036A0F2 /* TimeWindow.swift */; };
 		D44C28D0269B939B0036A0F2 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C28CF269B939B0036A0F2 /* AppState.swift */; };
 		D44C28D5269B93EA0036A0F2 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C28D4269B93EA0036A0F2 /* AppReducer.swift */; };
 		D44C28D7269B94020036A0F2 /* ContentReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C28D6269B94020036A0F2 /* ContentReducer.swift */; };
+		D4658B6226B299F9005972E5 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4658B6126B299F9005972E5 /* Content.swift */; };
 		D4CA607526B0C7D20032F720 /* SwiftRedux in Frameworks */ = {isa = PBXBuildFile; productRef = D4CA607426B0C7D20032F720 /* SwiftRedux */; };
 		D4D9ECF826A76BFB0084EF2E /* ContentReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D9ECF726A76BFB0084EF2E /* ContentReducerTests.swift */; };
 		D4D9ED0926A8B98C0084EF2E /* ContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D9ED0826A8B98C0084EF2E /* ContentListView.swift */; };
@@ -55,12 +56,13 @@
 		D44C289C269B83F70036A0F2 /* MovieDB-SwiftReduxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MovieDB-SwiftReduxTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44C28A2269B83F70036A0F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D44C28BD269B85720036A0F2 /* ContentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentService.swift; sourceTree = "<group>"; };
-		D44C28C6269B89600036A0F2 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
+		D44C28C6269B89600036A0F2 /* TMDBContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBContent.swift; sourceTree = "<group>"; };
 		D44C28C9269B906F0036A0F2 /* URLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLBuilder.swift; sourceTree = "<group>"; };
 		D44C28CC269B90CE0036A0F2 /* TimeWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeWindow.swift; sourceTree = "<group>"; };
 		D44C28CF269B939B0036A0F2 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		D44C28D4269B93EA0036A0F2 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
 		D44C28D6269B94020036A0F2 /* ContentReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentReducer.swift; sourceTree = "<group>"; };
+		D4658B6126B299F9005972E5 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		D4D9ECF726A76BFB0084EF2E /* ContentReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentReducerTests.swift; sourceTree = "<group>"; };
 		D4D9ED0826A8B98C0084EF2E /* ContentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListView.swift; sourceTree = "<group>"; };
 		D4D9ED0A26A8B9F00084EF2E /* FakeMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeMovies.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				D4D9ECFF26A8B5390084EF2E /* Main */,
 				D4D9ED0126A8B5960084EF2E /* Actions */,
 				D4D9ED0026A8B5590084EF2E /* Reducers */,
+				D4658B6026B299E1005972E5 /* Models */,
 				D4D9ED0326A8B6C00084EF2E /* Components */,
 				D4D9ED0526A8B92E0084EF2E /* Screens */,
 				D44C28BC269B855D0036A0F2 /* TMDB Service */,
@@ -161,7 +164,7 @@
 		D44C28BF269B891D0036A0F2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D44C28C6269B89600036A0F2 /* Content.swift */,
+				D44C28C6269B89600036A0F2 /* TMDBContent.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -180,6 +183,14 @@
 				D44C28CC269B90CE0036A0F2 /* TimeWindow.swift */,
 			);
 			path = "Endpoint Parameters";
+			sourceTree = "<group>";
+		};
+		D4658B6026B299E1005972E5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D4658B6126B299F9005972E5 /* Content.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		D4C21A2D269E510000CBC058 /* Frameworks */ = {
@@ -372,7 +383,7 @@
 				D44C28CD269B90CE0036A0F2 /* TimeWindow.swift in Sources */,
 				D44C28D0269B939B0036A0F2 /* AppState.swift in Sources */,
 				D4D9ED0E26A8BABD0084EF2E /* MovieService+JSONDecoder.swift in Sources */,
-				D44C28C7269B89600036A0F2 /* Content.swift in Sources */,
+				D44C28C7269B89600036A0F2 /* TMDBContent.swift in Sources */,
 				D4F8055D26B22AF600C59D39 /* ContentSectionView.swift in Sources */,
 				D44C28BE269B85720036A0F2 /* ContentService.swift in Sources */,
 				D44C2891269B83F60036A0F2 /* FeedView.swift in Sources */,
@@ -381,6 +392,7 @@
 				D40D689026B21334005D3B46 /* FeaturedContentListView.swift in Sources */,
 				D44C288F269B83F60036A0F2 /* MainApp.swift in Sources */,
 				D4D9ED0B26A8B9F00084EF2E /* FakeMovies.swift in Sources */,
+				D4658B6226B299F9005972E5 /* Content.swift in Sources */,
 				D44C28D7269B94020036A0F2 /* ContentReducer.swift in Sources */,
 				D44C28D5269B93EA0036A0F2 /* AppReducer.swift in Sources */,
 				D4D9ED1326A8C2190084EF2E /* DateFormatter+Extensions.swift in Sources */,

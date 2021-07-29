@@ -9,7 +9,9 @@ import Foundation
 
 extension Collection where Element == Content {
     static var fakeMovies: [Content] {
-        try! JSONDecoder.tmdbJsonDecoder.decode([Content].self, from: moviesJson)
+         try! JSONDecoder.tmdbJsonDecoder
+            .decode([TMDBContent].self, from: moviesJson)
+            .compactMap { Content(tmdbContent: $0) }
     }
 }
 

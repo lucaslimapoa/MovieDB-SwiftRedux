@@ -49,7 +49,7 @@ struct FeaturedContentListView: View {
             ScrollViewReader { scrollProxy in
                 HStack(spacing: Constants.itemSpacing) {
                     ForEach(content, id: \.id) { content in
-                        PosterView(url: content.backdropPath!.wrappedValue)
+                        PosterView(url: content.backdropURL)
                             .frame(width: posterWidth, height: posterHeight, alignment: .center)
                     }
                 }

@@ -25,26 +25,19 @@ struct ContentListView: View {
                 LazyHStack(alignment: .top, spacing: 12) {
                     ForEach(content, id: \.id) { content in
                         VStack(alignment: .leading, spacing: 4) {
-                            let title = content.title ?? content.name
-                            let date = content.releaseDate ?? content.firstAirDate
-                            
-                            PosterView(url: content.posterPath?.wrappedValue)
+                            PosterView(url: content.posterURL)
                                 .frame(height: Constants.posterHeight)
                             
-                            title.map {
-                                Text($0)
-                                    .foregroundColor(.primary)
-                                    .font(.system(size: 13, weight: .medium))
-                                    .lineLimit(2)
-                                    .multilineTextAlignment(.leading)
-                                    .fixedSize(horizontal: false, vertical: true)
-                            }
+                            Text(content.title)
+                                .foregroundColor(.primary)
+                                .font(.system(size: 13, weight: .medium))
+                                .lineLimit(2)
+                                .multilineTextAlignment(.leading)
+                                .fixedSize(horizontal: false, vertical: true)
                             
-                            date.map {
-                                Text($0, formatter: DateFormatter.mediumDate)
-                                    .foregroundColor(.secondary)
-                                    .font(.system(size: 11, weight: .regular))
-                            }
+                            Text(content.releaseDate, formatter: DateFormatter.mediumDate)
+                                .foregroundColor(.secondary)
+                                .font(.system(size: 11, weight: .regular))
                         }
                         .frame(width: Constants.itemWidth)
                     }

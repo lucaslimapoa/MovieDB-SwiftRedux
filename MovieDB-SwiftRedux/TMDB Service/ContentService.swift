@@ -60,13 +60,14 @@ final class TMDBService: ContentService {
         }
         
         struct ContentResponse: Decodable {
-            let results: [Content]
+            let results: [TMDBContent]
         }
         
         let response: AnyPublisher<ContentResponse, ContentServiceError> = requestPublisher(urlRequest: urlRequest)
         
         return response
             .map(\.results)
+            .compactMap { $0.compactMap(Content.init(tmdbContent:)) }
             .eraseToAnyPublisher()
     }
 }
