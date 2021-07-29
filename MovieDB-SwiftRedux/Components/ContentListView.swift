@@ -6,34 +6,33 @@
 //
 
 import SwiftUI
-import Kingfisher
 
 struct ContentListView: View {
+    private enum Constants {
+        static let itemWidth: CGFloat = 105
+        static let posterHeight: CGFloat = 145
+        static let defaultInset: CGFloat = 16
+    }
+    
     let content: [Content]
     @State var horizontalInset: CGFloat? = nil
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
-                Spacer(minLength: horizontalInset ?? 16)
+                Spacer(minLength: horizontalInset ?? Constants.defaultInset)
              
                 LazyHStack(alignment: .top, spacing: 12) {
                     ForEach(content, id: \.id) { content in
                         VStack(alignment: .leading, spacing: 4) {
-                            if let posterURL = content.posterPath {
-                                KFImage.url(posterURL.wrappedValue)
-                                    .placeholder { placeholderImage(shouldShowProgress: true) }
-                                    .fade(duration: 0.35)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(height: 145)
-                                    .cornerRadius(4)
-                            } else {
-                                placeholderImage(shouldShowProgress: false)
-                            }
+                            let title = content.title ?? content.name
+                            let date = content.releaseDate ?? content.firstAirDate
                             
-                            if let title = content.title ?? content.name {
-                                Text(title)
+                            PosterView(url: content.posterPath?.wrappedValue)
+                                .frame(height: Constants.posterHeight)
+                            
+                            title.map {
+                                Text($0)
                                     .foregroundColor(.primary)
                                     .font(.system(size: 13, weight: .medium))
                                     .lineLimit(2)
@@ -41,33 +40,19 @@ struct ContentListView: View {
                                     .fixedSize(horizontal: false, vertical: true)
                             }
                             
-                            let date = content.releaseDate ?? content.firstAirDate
-                            
                             date.map {
                                 Text($0, formatter: DateFormatter.mediumDate)
                                     .foregroundColor(.secondary)
                                     .font(.system(size: 11, weight: .regular))
                             }
                         }
-                        .frame(width: 105)
+                        .frame(width: Constants.itemWidth)
                     }
                 }
                 
-                Spacer(minLength: horizontalInset ?? 16)
+                Spacer(minLength: horizontalInset ?? Constants.defaultInset)
             }
         }
-    }
-    
-    private func placeholderImage(shouldShowProgress: Bool) -> some View {
-        ZStack {
-            Color.clear
-
-            if shouldShowProgress {
-                ProgressView()
-            }
-        }
-        .frame(height: 160)
-        .cornerRadius(4)
     }
 }
 

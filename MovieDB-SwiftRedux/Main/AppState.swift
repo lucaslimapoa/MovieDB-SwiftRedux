@@ -8,6 +8,7 @@
 import Foundation
 
 struct AppState: Equatable {
+    var trending: LoadableModel<[Content]> = .loading(nil)
     var popularMovies: LoadableModel<[Content]> = .loading(nil)
     var topRatedMovies: LoadableModel<[Content]> = .loading(nil)
     var popularTvShows: LoadableModel<[Content]> = .loading(nil)

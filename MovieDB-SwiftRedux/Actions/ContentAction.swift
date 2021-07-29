@@ -9,11 +9,13 @@ import SwiftUI
 import Combine
 import SwiftRedux
 
+enum Trending { }
 enum PopularMovies { }
 enum TopRatedMovies { }
 enum PopularTvShows { }
 enum TopRatedTvShows { }
 
+typealias TrendingAction = ContentAction<Trending>
 typealias PopularMoviesAction = ContentAction<PopularMovies>
 typealias TopRatedMoviesAction = ContentAction<TopRatedMovies>
 typealias PopularTvShowsAction = ContentAction<PopularTvShows>
@@ -57,5 +59,11 @@ extension ContentAction where Type == PopularTvShows {
 extension ContentAction where Type == TopRatedTvShows {
     static func fetch(service: ContentService = TMDBService()) -> ThunkPublisher<AppState> {
         fetch(query: .topRatedTvShows, service: service)
+    }
+}
+
+extension ContentAction where Type == Trending {
+    static func fetch(service: ContentService = TMDBService()) -> ThunkPublisher<AppState> {
+        fetch(query: .trending, service: service)
     }
 }

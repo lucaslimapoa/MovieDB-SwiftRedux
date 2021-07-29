@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D40D689026B21334005D3B46 /* FeaturedContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40D688F26B21334005D3B46 /* FeaturedContentListView.swift */; };
+		D40D689226B213E5005D3B46 /* PosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40D689126B213E5005D3B46 /* PosterView.swift */; };
 		D41242EF26AE1E1B00206D21 /* SwiftRedux in Frameworks */ = {isa = PBXBuildFile; productRef = D41242EE26AE1E1B00206D21 /* SwiftRedux */; };
 		D44C288F269B83F60036A0F2 /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C288E269B83F60036A0F2 /* MainApp.swift */; };
 		D44C2891269B83F60036A0F2 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C2890269B83F60036A0F2 /* FeedView.swift */; };
@@ -28,6 +30,7 @@
 		D4D9ED1326A8C2190084EF2E /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D9ED1226A8C2190084EF2E /* DateFormatter+Extensions.swift */; };
 		D4E3830E26A4EC2E00336CB3 /* ContentAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3830D26A4EC2E00336CB3 /* ContentAction.swift */; };
 		D4E3831026A4EC4A00336CB3 /* LoadableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E3830F26A4EC4A00336CB3 /* LoadableModel.swift */; };
+		D4F8055D26B22AF600C59D39 /* ContentSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F8055C26B22AF600C59D39 /* ContentSectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D40D688F26B21334005D3B46 /* FeaturedContentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedContentListView.swift; sourceTree = "<group>"; };
+		D40D689126B213E5005D3B46 /* PosterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterView.swift; sourceTree = "<group>"; };
 		D44C288B269B83F60036A0F2 /* MovieDB-SwiftRedux.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MovieDB-SwiftRedux.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44C288E269B83F60036A0F2 /* MainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApp.swift; sourceTree = "<group>"; };
 		D44C2890269B83F60036A0F2 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
@@ -63,6 +68,7 @@
 		D4D9ED1226A8C2190084EF2E /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
 		D4E3830D26A4EC2E00336CB3 /* ContentAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentAction.swift; sourceTree = "<group>"; };
 		D4E3830F26A4EC4A00336CB3 /* LoadableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableModel.swift; sourceTree = "<group>"; };
+		D4F8055C26B22AF600C59D39 /* ContentSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +228,9 @@
 			isa = PBXGroup;
 			children = (
 				D4D9ED0826A8B98C0084EF2E /* ContentListView.swift */,
+				D40D688F26B21334005D3B46 /* FeaturedContentListView.swift */,
+				D40D689126B213E5005D3B46 /* PosterView.swift */,
+				D4F8055C26B22AF600C59D39 /* ContentSectionView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -364,15 +373,18 @@
 				D44C28D0269B939B0036A0F2 /* AppState.swift in Sources */,
 				D4D9ED0E26A8BABD0084EF2E /* MovieService+JSONDecoder.swift in Sources */,
 				D44C28C7269B89600036A0F2 /* Content.swift in Sources */,
+				D4F8055D26B22AF600C59D39 /* ContentSectionView.swift in Sources */,
 				D44C28BE269B85720036A0F2 /* ContentService.swift in Sources */,
 				D44C2891269B83F60036A0F2 /* FeedView.swift in Sources */,
 				D4E3831026A4EC4A00336CB3 /* LoadableModel.swift in Sources */,
 				D4E3830E26A4EC2E00336CB3 /* ContentAction.swift in Sources */,
+				D40D689026B21334005D3B46 /* FeaturedContentListView.swift in Sources */,
 				D44C288F269B83F60036A0F2 /* MainApp.swift in Sources */,
 				D4D9ED0B26A8B9F00084EF2E /* FakeMovies.swift in Sources */,
 				D44C28D7269B94020036A0F2 /* ContentReducer.swift in Sources */,
 				D44C28D5269B93EA0036A0F2 /* AppReducer.swift in Sources */,
 				D4D9ED1326A8C2190084EF2E /* DateFormatter+Extensions.swift in Sources */,
+				D40D689226B213E5005D3B46 /* PosterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

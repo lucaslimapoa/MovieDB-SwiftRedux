@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 enum ContentQuery {
+    case trending
     case popularMovies
     case topRatedMovies
     case popularTvShows
@@ -73,6 +74,8 @@ final class TMDBService: ContentService {
 private extension ContentQuery {
     var path: String {
         switch self {
+        case .trending:
+            return "trending/all/week"
         case .popularMovies:
             return "movie/popular"
         case .topRatedMovies:
