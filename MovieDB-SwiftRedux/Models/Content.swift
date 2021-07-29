@@ -10,6 +10,7 @@ import Foundation
 struct Content: Equatable {
     let id: Int
     let title: String
+    let overview: String
     let releaseDate: Date
     let posterURL: URL
     let backdropURL: URL
@@ -25,6 +26,6 @@ extension Content {
               let backdropURL = URL(string: "https://image.tmdb.org/t/p/w780\(backdropPath)") else {
                   return nil
               }
-        self.init(id: tmdbContent.id, title: title, releaseDate: releaseDate, posterURL: posterURL, backdropURL: backdropURL)
+        self.init(id: tmdbContent.id, title: title, overview: tmdbContent.overview, releaseDate: releaseDate, posterURL: posterURL, backdropURL: backdropURL)
     }
 }

@@ -49,8 +49,10 @@ struct FeaturedContentListView: View {
             ScrollViewReader { scrollProxy in
                 HStack(spacing: Constants.itemSpacing) {
                     ForEach(content, id: \.id) { content in
-                        PosterView(url: content.backdropURL)
-                            .frame(width: posterWidth, height: posterHeight, alignment: .center)
+                        NavigationLink(destination: ContentDetailsView(content: content)) {
+                                PosterView(url: content.backdropURL)
+                                    .frame(width: posterWidth, height: posterHeight, alignment: .center)
+                            }
                     }
                 }
                 .padding(.horizontal)
@@ -62,7 +64,7 @@ struct FeaturedContentListView: View {
 
 struct FeaturedContentListView_Previews: PreviewProvider {
     static var previews: some View {
-        FeaturedContentListView(model: .loaded(.fakeMovies))
+        FeaturedContentListView(model: .loaded(fakeMovies))
             .padding(.vertical)
             .previewLayout(PreviewLayout.sizeThatFits)
         

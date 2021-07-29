@@ -24,22 +24,24 @@ struct ContentListView: View {
              
                 LazyHStack(alignment: .top, spacing: 12) {
                     ForEach(content, id: \.id) { content in
-                        VStack(alignment: .leading, spacing: 4) {
-                            PosterView(url: content.posterURL)
-                                .frame(height: Constants.posterHeight)
-                            
-                            Text(content.title)
-                                .foregroundColor(.primary)
-                                .font(.system(size: 13, weight: .medium))
-                                .lineLimit(2)
-                                .multilineTextAlignment(.leading)
-                                .fixedSize(horizontal: false, vertical: true)
-                            
-                            Text(content.releaseDate, formatter: DateFormatter.mediumDate)
-                                .foregroundColor(.secondary)
-                                .font(.system(size: 11, weight: .regular))
+                        NavigationLink(destination: ContentDetailsView(content: content)) {
+                            VStack(alignment: .leading, spacing: 4) {
+                                PosterView(url: content.posterURL)
+                                    .frame(height: Constants.posterHeight)
+                                
+                                Text(content.title)
+                                    .foregroundColor(.primary)
+                                    .font(.system(size: 13, weight: .medium))
+                                    .lineLimit(2)
+                                    .multilineTextAlignment(.leading)
+                                    .fixedSize(horizontal: false, vertical: true)
+                                
+                                Text(content.releaseDate, formatter: DateFormatter.mediumDate)
+                                    .foregroundColor(.secondary)
+                                    .font(.system(size: 11, weight: .regular))
+                            }
+                            .frame(width: Constants.itemWidth)
                         }
-                        .frame(width: Constants.itemWidth)
                     }
                 }
                 
@@ -52,15 +54,11 @@ struct ContentListView: View {
 struct MovieListView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ContentListView(
-                content: .fakeMovies
-            )
-            .preferredColorScheme(.dark)
+            ContentListView(content: fakeMovies)
+                .preferredColorScheme(.dark)
             
-            ContentListView(
-                content: .fakeMovies
-            )
-            .preferredColorScheme(.light)
+            ContentListView(content: fakeMovies)
+                .preferredColorScheme(.light)
         }
     }
 }

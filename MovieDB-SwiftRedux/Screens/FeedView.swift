@@ -10,11 +10,12 @@ import SwiftRedux
 
 struct FeedView: View {
     @ObservedObject var store: Store<AppState>
+    @State private var shouldRefresh = true
     
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
-                VStack(alignment: .leading, spacing: 16) {
+                VStack(alignment: .leading, spacing: 16) {                    
                     FeaturedContentListView(model: store.state.trending)
                     
                     ContentSectionView(header: "Popular Movies", model: store.state.popularMovies)
@@ -34,6 +35,8 @@ struct FeedView: View {
     }
     
     private func fetchAll() {
+        guard shouldRefresh else { return }
+        
         [
             TrendingAction.fetch(),
             PopularMoviesAction.fetch(),
@@ -42,6 +45,8 @@ struct FeedView: View {
             TopRatedTvShowsAction.fetch()
         ]
         .forEach(store.dispatch(action:))
+        
+        shouldRefresh = false
     }
 }
 
@@ -50,8 +55,8 @@ struct ContentView_Previews: PreviewProvider {
         FeedView(
             store: Store<AppState>(
                 initialState: AppState(
-                    trending: .loaded(.fakeMovies),
-                    popularMovies: .loaded(.fakeMovies),
+                    trending: .loaded(fakeMovies),
+                    popularMovies: .loaded(fakeMovies),
                     topRatedMovies: .error,
                     popularTvShows: .loading(nil)
                 ),

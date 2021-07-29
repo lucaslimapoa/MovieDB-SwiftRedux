@@ -39,6 +39,6 @@ struct ContentSectionView: View {
 
 struct ContentSectionView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentSectionView(header: "Header", model: .loaded(.fakeMovies))
+        ContentSectionView(header: "Header", model: .loaded(fakeMovies))
     }
 }
