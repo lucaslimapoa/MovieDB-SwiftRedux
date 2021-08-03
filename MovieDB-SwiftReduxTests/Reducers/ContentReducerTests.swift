@@ -106,6 +106,7 @@ private let fakeMovies = [
     Content(
         id: 0,
         title: "title",
+        overview: "overview",
         releaseDate: Date(),
         posterURL: URL(string: "https://image.tmdb.org/t/p/w185_and_h278_bestv2/9E2y5Q7WlCVNEhP5GiVTjhEhx1o.jpg")!,
         backdropURL: URL(string: "https://image.tmdb.org/t/p/w185_and_h278_bestv2/9E2y5Q7WlCVNEhP5GiVTjhEhx1o.jpg")!

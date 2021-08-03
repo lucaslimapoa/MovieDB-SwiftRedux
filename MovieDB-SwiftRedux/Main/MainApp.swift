@@ -10,16 +10,16 @@ import SwiftRedux
 
 @main
 struct MainApp: App {
-    private let store = Store(
-        initialState: AppState(),
-        reducer: appReducer,
-        middleware: ThunkMiddleware()
-    )
-    
     var body: some Scene {
         WindowGroup {
-            FeedView(store: store)
-                .environmentObject(store)
+            FeedView()
+                .store(
+                    Store(
+                        initialState: AppState(),
+                        reducer: appReducer,
+                        middleware: ThunkMiddleware()
+                    )
+                )
         }
     }
 }
