@@ -19,9 +19,13 @@ struct ContentSectionView: View {
                 .padding(.horizontal)
             
             switch model {
-            case .loading:
-                ProgressView()
-                    .frame(maxWidth: .infinity, minHeight: 135, alignment: .center)
+            case let .loading(content):
+                if let content = content {
+                    ContentListView(content: content)
+                } else {
+                    ProgressView()
+                        .frame(maxWidth: .infinity, minHeight: 135, alignment: .center)
+                }
                 
             case .error:
                 Text("Something went wrong")

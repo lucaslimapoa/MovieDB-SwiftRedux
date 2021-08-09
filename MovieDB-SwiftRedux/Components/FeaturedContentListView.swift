@@ -21,9 +21,13 @@ struct FeaturedContentListView: View {
         case .loaded(let content):
             contentView(content: content)
             
-        case .loading:
-            ProgressView()
-                .frame(maxWidth: .infinity, minHeight: 135, alignment: .center)
+        case let .loading(content):
+            if let content = content {
+                contentView(content: content)
+            } else {
+                ProgressView()
+                    .frame(maxWidth: .infinity, minHeight: 135, alignment: .center)
+            }
             
         case .error:
             Text("Something went wrong")
@@ -43,7 +47,6 @@ struct FeaturedContentListView: View {
         // but was causing issues
         let posterWidth: CGFloat = screenWidth - Constants.defaultInset * 2
         let posterHeight: CGFloat = posterWidth / Constants.widthRatio
-        let middleElement = content[content.count / 2].id
 
         return ScrollView(.horizontal, showsIndicators: false) {
             ScrollViewReader { scrollProxy in
@@ -56,7 +59,6 @@ struct FeaturedContentListView: View {
                     }
                 }
                 .padding(.horizontal)
-                .onAppear { scrollProxy.scrollTo(middleElement, anchor: .center) }
             }
         }
     }
