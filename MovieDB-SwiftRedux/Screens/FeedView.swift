@@ -9,30 +9,34 @@ import SwiftUI
 import SwiftRedux
 
 struct FeedView: View {
-    @UseDispatch<AnyAction> private var dispatch
-    
+    @Dispatch<AnyAction> private var dispatch
     @SelectState(\AppState.trending) private var trending
-    @SelectState(\AppState.popularMovies) private var popularMovies
-    @SelectState(\AppState.topRatedMovies) private var topRatedMovies
-    @SelectState(\AppState.popularTvShows) private var popularTvShows
-    @SelectState(\AppState.topRatedTvShows) private var topRatedTvShows
+    @SelectState(mapToSections) private var sections
     
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 16) {
                     FeaturedContentListView(model: trending)
-                    ContentSectionView(header: "Popular Movies", model: popularMovies)
-                    ContentSectionView(header: "Top Rated Movies", model: topRatedMovies)
-                    ContentSectionView(header: "Popular TV Shows", model: popularTvShows)
-                    ContentSectionView(header: "Top Rated TV Shows", model: topRatedTvShows)
+                    ForEach(sections, id: \.header) { section in
+                        ContentSectionView(header: section.header, model: section.model)
+                    }
                 }
                 .edgesIgnoringSafeArea(.horizontal)
             }
             .navigationBarTitle("TMDB Redux")
             .navigationBarTitleDisplayMode(.large)
-            .onAppear(perform: fetchAll)
+            .onLoad(perform: fetchAll)
         }
+    }
+    
+    private static func mapToSections(state: AppState) -> [Section] {
+        [
+            Section(header: "Popular Movies", model: state.popularMovies),
+            Section(header: "Top Rated Movies", model: state.topRatedMovies),
+            Section(header: "Popular TV Shows", model: state.popularTvShows),
+            Section(header: "Top Rated TV Shows", model: state.topRatedTvShows)
+        ]
     }
     
     private func fetchAll() {
@@ -45,6 +49,11 @@ struct FeedView: View {
         ]
         .forEach { dispatch(action: $0) }
     }
+}
+
+private struct Section {
+    let header: String
+    let model: LoadableModel<[Content]>
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -60,6 +69,6 @@ struct ContentView_Previews: PreviewProvider {
                     ),
                     reducer: appReducer
                 )
-        )
+            )
     }
 }
