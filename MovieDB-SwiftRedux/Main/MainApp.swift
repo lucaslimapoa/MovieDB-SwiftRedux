@@ -17,7 +17,9 @@ struct MainApp: App {
                     Store(
                         initialState: AppState(),
                         reducer: appReducer,
-                        middleware: ThunkMiddleware()
+                        middleware: CombinedMiddleware
+                            .apply(LoggingMiddleware())
+                            .apply(ThunkMiddleware())
                     )
                 )
         }

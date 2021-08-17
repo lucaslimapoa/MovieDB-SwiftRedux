@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		D40D689026B21334005D3B46 /* FeaturedContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40D688F26B21334005D3B46 /* FeaturedContentListView.swift */; };
 		D40D689226B213E5005D3B46 /* PosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40D689126B213E5005D3B46 /* PosterView.swift */; };
-		D41242EF26AE1E1B00206D21 /* SwiftRedux in Frameworks */ = {isa = PBXBuildFile; productRef = D41242EE26AE1E1B00206D21 /* SwiftRedux */; };
 		D44C288F269B83F60036A0F2 /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C288E269B83F60036A0F2 /* MainApp.swift */; };
 		D44C2891269B83F60036A0F2 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C2890269B83F60036A0F2 /* FeedView.swift */; };
 		D44C2893269B83F60036A0F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44C2892269B83F60036A0F2 /* Assets.xcassets */; };
@@ -21,8 +20,8 @@
 		D44C28D5269B93EA0036A0F2 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C28D4269B93EA0036A0F2 /* AppReducer.swift */; };
 		D44C28D7269B94020036A0F2 /* ContentReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C28D6269B94020036A0F2 /* ContentReducer.swift */; };
 		D4658B6226B299F9005972E5 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4658B6126B299F9005972E5 /* Content.swift */; };
+		D469B22526CC685C008ACFD0 /* SwiftRedux in Frameworks */ = {isa = PBXBuildFile; productRef = D469B22426CC685C008ACFD0 /* SwiftRedux */; };
 		D4B1C30D26B36E2A00D8E23B /* ContentDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B1C30C26B36E2A00D8E23B /* ContentDetailsView.swift */; };
-		D4BBDE8226C33B560007AC43 /* SwiftRedux in Frameworks */ = {isa = PBXBuildFile; productRef = D4BBDE8126C33B560007AC43 /* SwiftRedux */; };
 		D4D9ECF826A76BFB0084EF2E /* ContentReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D9ECF726A76BFB0084EF2E /* ContentReducerTests.swift */; };
 		D4D9ED0926A8B98C0084EF2E /* ContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D9ED0826A8B98C0084EF2E /* ContentListView.swift */; };
 		D4D9ED0B26A8B9F00084EF2E /* FakeMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D9ED0A26A8B9F00084EF2E /* FakeMovies.swift */; };
@@ -80,9 +79,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4BBDE8226C33B560007AC43 /* SwiftRedux in Frameworks */,
 				D4D9ED1126A8BBD00084EF2E /* Kingfisher in Frameworks */,
-				D41242EF26AE1E1B00206D21 /* SwiftRedux in Frameworks */,
+				D469B22526CC685C008ACFD0 /* SwiftRedux in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,8 +281,7 @@
 			name = "MovieDB-SwiftRedux";
 			packageProductDependencies = (
 				D4D9ED1026A8BBD00084EF2E /* Kingfisher */,
-				D41242EE26AE1E1B00206D21 /* SwiftRedux */,
-				D4BBDE8126C33B560007AC43 /* SwiftRedux */,
+				D469B22426CC685C008ACFD0 /* SwiftRedux */,
 			);
 			productName = "MovieDB-SwiftRedux";
 			productReference = D44C288B269B83F60036A0F2 /* MovieDB-SwiftRedux.app */;
@@ -337,7 +334,7 @@
 			mainGroup = D44C2882269B83F60036A0F2;
 			packageReferences = (
 				D4D9ED0F26A8BBD00084EF2E /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				D4BBDE8026C33B560007AC43 /* XCRemoteSwiftPackageReference "SwiftRedux" */,
+				D469B22326CC685C008ACFD0 /* XCRemoteSwiftPackageReference "SwiftRedux" */,
 			);
 			productRefGroup = D44C288C269B83F60036A0F2 /* Products */;
 			projectDirPath = "";
@@ -650,12 +647,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D4BBDE8026C33B560007AC43 /* XCRemoteSwiftPackageReference "SwiftRedux" */ = {
+		D469B22326CC685C008ACFD0 /* XCRemoteSwiftPackageReference "SwiftRedux" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/lucaslimapoa/SwiftRedux/";
+			repositoryURL = "https://github.com/lucaslimapoa/SwiftRedux";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.8;
+				minimumVersion = 0.1.9;
 			};
 		};
 		D4D9ED0F26A8BBD00084EF2E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
@@ -669,13 +666,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D41242EE26AE1E1B00206D21 /* SwiftRedux */ = {
+		D469B22426CC685C008ACFD0 /* SwiftRedux */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = SwiftRedux;
-		};
-		D4BBDE8126C33B560007AC43 /* SwiftRedux */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D4BBDE8026C33B560007AC43 /* XCRemoteSwiftPackageReference "SwiftRedux" */;
+			package = D469B22326CC685C008ACFD0 /* XCRemoteSwiftPackageReference "SwiftRedux" */;
 			productName = SwiftRedux;
 		};
 		D4D9ED1026A8BBD00084EF2E /* Kingfisher */ = {

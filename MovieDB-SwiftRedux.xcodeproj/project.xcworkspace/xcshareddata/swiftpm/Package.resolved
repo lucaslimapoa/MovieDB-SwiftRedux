@@ -12,11 +12,11 @@
       },
       {
         "package": "SwiftRedux",
-        "repositoryURL": "https://github.com/lucaslimapoa/SwiftRedux/",
+        "repositoryURL": "https://github.com/lucaslimapoa/SwiftRedux",
         "state": {
           "branch": null,
-          "revision": "4ebe49b52c760fc512f757c15d670a6cd02a75aa",
-          "version": "0.1.8"
+          "revision": "4beb941422ce65729b62a458586f7e98132b18c2",
+          "version": "0.1.9"
         }
       }
     ]
