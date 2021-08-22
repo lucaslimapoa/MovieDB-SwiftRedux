@@ -8,6 +8,13 @@
 import Foundation
 
 extension DateFormatter {
+    static let longDate: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .none
+        return dateFormatter
+    }()
+    
     static let mediumDate: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium

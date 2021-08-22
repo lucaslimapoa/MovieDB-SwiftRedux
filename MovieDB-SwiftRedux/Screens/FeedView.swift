@@ -28,6 +28,7 @@ struct FeedView: View {
             .navigationBarTitleDisplayMode(.large)
             .onLoad(perform: fetchAll)
         }
+        .accentColor(.white)
     }
     
     private static func mapToSections(state: AppState) -> [Section] {

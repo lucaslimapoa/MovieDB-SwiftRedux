@@ -14,6 +14,7 @@ struct Content: Equatable {
     let releaseDate: Date
     let posterURL: URL
     let backdropURL: URL
+    let rating: String
 }
 
 extension Content {
@@ -23,9 +24,19 @@ extension Content {
               let posterPath = tmdbContent.posterPath,
               let posterURL = URL(string: "https://image.tmdb.org/t/p/w342\(posterPath)"),
               let backdropPath = tmdbContent.backdropPath,
-              let backdropURL = URL(string: "https://image.tmdb.org/t/p/w780\(backdropPath)") else {
+              let backdropURL = URL(string: "https://image.tmdb.org/t/p/w780\(backdropPath)"),
+              let voteAverage = tmdbContent.voteAverage else {
                   return nil
               }
-        self.init(id: tmdbContent.id, title: title, overview: tmdbContent.overview, releaseDate: releaseDate, posterURL: posterURL, backdropURL: backdropURL)
+        
+        self.init(
+            id: tmdbContent.id,
+            title: title,
+            overview: tmdbContent.overview,
+            releaseDate: releaseDate,
+            posterURL: posterURL,
+            backdropURL: backdropURL,
+            rating: String(format: "%.1f", voteAverage)
+        )
     }
 }
