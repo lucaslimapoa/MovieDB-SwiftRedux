@@ -34,7 +34,7 @@ struct PersonView: View {
                 .foregroundColor(.primary)
                 .multilineTextAlignment(.center)
         }
-        .frame(idealWidth: 100, maxWidth: 100, alignment: .center)
+        .frame(width: 100, alignment: .center)
     }
     
     private func loadingImage() -> some View {
