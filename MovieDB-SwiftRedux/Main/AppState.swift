@@ -13,4 +13,5 @@ struct AppState: Equatable {
     var topRatedMovies: LoadableModel<[Content]> = .loading(nil)
     var popularTvShows: LoadableModel<[Content]> = .loading(nil)
     var topRatedTvShows: LoadableModel<[Content]> = .loading(nil)
+    var selectedContentCast: LoadableModel<[Actor]> = .loading(nil)
 }

@@ -14,3 +14,4 @@ let appReducer = CombinedReducer<AppState>
     .apply(reducer: ContentReducer<TopRatedMovies>(), for: \.topRatedMovies)
     .apply(reducer: ContentReducer<PopularTvShows>(), for: \.popularTvShows)
     .apply(reducer: ContentReducer<TopRatedTvShows>(), for: \.topRatedTvShows)
+    .apply(reducer: CastReducer(), for: \.selectedContentCast)

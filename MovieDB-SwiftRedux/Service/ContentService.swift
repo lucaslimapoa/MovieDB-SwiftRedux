@@ -22,4 +22,5 @@ enum ContentServiceError: Error {
 
 protocol ContentService {
     func content(query: ContentQuery) -> AnyPublisher<[Content], ContentServiceError>
+    func credits(contentId: Int, contentType: ContentType) -> AnyPublisher<[Actor], ContentServiceError>
 }

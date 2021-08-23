@@ -32,7 +32,24 @@ final class TMDBService: ContentService {
         
         return response
             .map(\.results)
-            .compactMap { $0.compactMap(Content.init(tmdbContent:)) }
+            .compactMap { $0.compactMap { $0.toContent(contentType: query.contentType) } }
+            .eraseToAnyPublisher()
+    }
+    
+    func credits(contentId: Int, contentType: ContentType) -> AnyPublisher<[Actor], ContentServiceError> {
+        guard let urlRequest = buildRequest(path: contentType.path(id: contentId)) else {
+            return Fail(error: .invalidURL).eraseToAnyPublisher()
+        }
+        
+        struct Response: Decodable {
+            let cast: [TMDBActor]
+        }
+        
+        let response: AnyPublisher<Response, ContentServiceError> = requestPublisher(urlRequest: urlRequest)
+        
+        return response
+            .map(\.cast)
+            .compactMap { $0.compactMap { $0.toActor() } }
             .eraseToAnyPublisher()
     }
     
@@ -57,15 +74,35 @@ private extension ContentQuery {
     var path: String {
         switch self {
         case .trending:
-            return "trending/all/week"
+            return "/trending/movie/week"
         case .popularMovies:
-            return "movie/popular"
+            return "/movie/popular"
         case .topRatedMovies:
             return "/movie/top_rated"
         case .popularTvShows:
             return "/tv/popular"
         case .topRatedTvShows:
             return "/tv/top_rated"
+        }
+    }
+    
+    var contentType: ContentType {
+        switch self {
+        case .popularMovies, .topRatedMovies, .trending:
+            return .movie
+        case .popularTvShows, .topRatedTvShows:
+            return .tv
+        }
+    }
+}
+
+private extension ContentType {
+    func path(id: Int) -> String {
+        switch self {
+        case .movie:
+            return "/movie/\(id)/credits"
+        case .tv:
+            return "/tv/\(id)/credits"
         }
     }
 }

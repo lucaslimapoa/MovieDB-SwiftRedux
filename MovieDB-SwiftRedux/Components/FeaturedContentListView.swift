@@ -30,10 +30,7 @@ struct FeaturedContentListView: View {
             }
             
         case .error:
-            Text("Something went wrong")
-                .foregroundColor(.primary)
-                .font(.body)
-                .frame(maxWidth: .infinity, minHeight: 135, alignment: .center)
+            ErrorText()
         }
     }
     

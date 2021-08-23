@@ -1,49 +1,14 @@
 //
-//  ContentDetailsView.swift
+//  HeaderDetailsView.swift
 //  MovieDB-SwiftRedux
 //
-//  Created by Lucas Lima on 30.07.21.
+//  Created by Lucas Lima on 24.08.21.
 //
 
 import SwiftUI
 import Kingfisher
 
-struct ContentDetailsView: View {
-    @Environment(\.presentationMode) private var presentation
-    
-    let content: Content
-    
-    var body: some View {
-        ScrollView {
-            VStack(alignment: .leading) {
-                Header(content: content)
-                
-                VStack(alignment: .leading, spacing: 16) {
-                    section(title: "STORYLINE") {
-                        Text(content.overview)
-                            .font(.system(size: 16, weight: .regular))
-                            .foregroundColor(.primary)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
-                }
-                .padding(.horizontal)
-            }
-        }
-        .edgesIgnoringSafeArea(.vertical)
-    }
-    
-    private func section<T>(title: String, @ViewBuilder content: () -> T) -> some View where T: View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text(title)
-                .foregroundColor(Color(.systemGray))
-                .font(.system(size: 14, weight: .medium))
-            
-            content()
-        }
-    }
-}
-
-private struct Header: View {
+struct HeaderDetailsView: View {
     private enum Constants {
         static let headerHeight: CGFloat = 350
         static let backdropHeight: CGFloat = 250
@@ -101,8 +66,7 @@ private struct Header: View {
                                 .foregroundColor(.secondary)
                         }
                     }
-                    .font(.system(size: 14))
-                    
+                    .font(.system(size: 14))                    
                 }
                 .padding(.top, 32)
             }
@@ -121,14 +85,8 @@ private struct Header: View {
     }
 }
 
-struct ContentDetailsView_Previews: PreviewProvider {
+struct HeaderDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            ContentDetailsView(content: fakeMovies.first!)
-                .preferredColorScheme(.dark)
-            
-            ContentDetailsView(content: fakeMovies.first!)
-                .preferredColorScheme(.light)
-        }
+        HeaderDetailsView(content: fakeMovies[0])
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 var fakeMovies: [Content] {
      try! JSONDecoder.tmdbJsonDecoder
         .decode([TMDBContent].self, from: moviesJson)
-        .compactMap { Content(tmdbContent: $0) }
+        .compactMap { $0.toContent(contentType: .movie) }
 }
 
 private let moviesJson =

@@ -7,6 +7,11 @@
 
 import Foundation
 
+enum ContentType {
+    case movie
+    case tv
+}
+
 struct Content: Equatable {
     let id: Int
     let title: String
@@ -15,28 +20,5 @@ struct Content: Equatable {
     let posterURL: URL
     let backdropURL: URL
     let rating: String
-}
-
-extension Content {
-    init?(tmdbContent: TMDBContent) {
-        guard let title = tmdbContent.title ?? tmdbContent.name,
-              let releaseDate = tmdbContent.releaseDate ?? tmdbContent.firstAirDate,
-              let posterPath = tmdbContent.posterPath,
-              let posterURL = URL(string: "https://image.tmdb.org/t/p/w342\(posterPath)"),
-              let backdropPath = tmdbContent.backdropPath,
-              let backdropURL = URL(string: "https://image.tmdb.org/t/p/w780\(backdropPath)"),
-              let voteAverage = tmdbContent.voteAverage else {
-                  return nil
-              }
-        
-        self.init(
-            id: tmdbContent.id,
-            title: title,
-            overview: tmdbContent.overview,
-            releaseDate: releaseDate,
-            posterURL: posterURL,
-            backdropURL: backdropURL,
-            rating: String(format: "%.1f", voteAverage)
-        )
-    }
+    let contentType: ContentType
 }
