@@ -94,14 +94,6 @@ class ContentReducerTests: XCTestCase {
     }
 }
 
-private final class ContentServiceMock: ContentService {
-    var contentStub: AnyPublisher<[Content], ContentServiceError>?
-    func content(query: ContentQuery) -> AnyPublisher<[Content], ContentServiceError> {
-        guard let contentStub = contentStub else { fatalError("trendingStub not configured") }
-        return contentStub
-    }
-}
-
 private let fakeMovies = [
     Content(
         id: 0,
@@ -110,6 +102,7 @@ private let fakeMovies = [
         releaseDate: Date(),
         posterURL: URL(string: "https://image.tmdb.org/t/p/w185_and_h278_bestv2/9E2y5Q7WlCVNEhP5GiVTjhEhx1o.jpg")!,
         backdropURL: URL(string: "https://image.tmdb.org/t/p/w185_and_h278_bestv2/9E2y5Q7WlCVNEhP5GiVTjhEhx1o.jpg")!,
-        rating: "9.8"
+        rating: "9.8",
+        contentType: .movie
     )
 ]

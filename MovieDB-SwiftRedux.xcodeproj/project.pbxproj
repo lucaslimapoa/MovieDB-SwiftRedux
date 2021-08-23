@@ -15,6 +15,8 @@
 		D42A1E3426D45BB9000D391F /* CastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A1E3326D45BB9000D391F /* CastView.swift */; };
 		D42A1E3626D45C7C000D391F /* ErrorText.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A1E3526D45C7C000D391F /* ErrorText.swift */; };
 		D42A1E3826D45E68000D391F /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A1E3726D45E68000D391F /* RemoteImage.swift */; };
+		D42A1E3A26D4630A000D391F /* CastReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A1E3926D4630A000D391F /* CastReducerTests.swift */; };
+		D42A1E3C26D464BE000D391F /* ContentServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A1E3B26D464BE000D391F /* ContentServiceMock.swift */; };
 		D44C288F269B83F60036A0F2 /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C288E269B83F60036A0F2 /* MainApp.swift */; };
 		D44C2891269B83F60036A0F2 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44C2890269B83F60036A0F2 /* FeedView.swift */; };
 		D44C2893269B83F60036A0F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44C2892269B83F60036A0F2 /* Assets.xcassets */; };
@@ -63,6 +65,8 @@
 		D42A1E3326D45BB9000D391F /* CastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastView.swift; sourceTree = "<group>"; };
 		D42A1E3526D45C7C000D391F /* ErrorText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorText.swift; sourceTree = "<group>"; };
 		D42A1E3726D45E68000D391F /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
+		D42A1E3926D4630A000D391F /* CastReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastReducerTests.swift; sourceTree = "<group>"; };
+		D42A1E3B26D464BE000D391F /* ContentServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentServiceMock.swift; sourceTree = "<group>"; };
 		D44C288B269B83F60036A0F2 /* MovieDB-SwiftRedux.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MovieDB-SwiftRedux.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44C288E269B83F60036A0F2 /* MainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApp.swift; sourceTree = "<group>"; };
 		D44C2890269B83F60036A0F2 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
@@ -184,6 +188,7 @@
 			children = (
 				D4D9ED0426A8B8920084EF2E /* Reducers */,
 				D44C28A2269B83F70036A0F2 /* Info.plist */,
+				D42A1E3B26D464BE000D391F /* ContentServiceMock.swift */,
 			);
 			path = "MovieDB-SwiftReduxTests";
 			sourceTree = "<group>";
@@ -286,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				D4D9ECF726A76BFB0084EF2E /* ContentReducerTests.swift */,
+				D42A1E3926D4630A000D391F /* CastReducerTests.swift */,
 			);
 			path = Reducers;
 			sourceTree = "<group>";
@@ -462,6 +468,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4D9ECF826A76BFB0084EF2E /* ContentReducerTests.swift in Sources */,
+				D42A1E3A26D4630A000D391F /* CastReducerTests.swift in Sources */,
+				D42A1E3C26D464BE000D391F /* ContentServiceMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
