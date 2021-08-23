@@ -32,7 +32,6 @@ struct CastView: View {
         }
         .edgesIgnoringSafeArea(.horizontal)
     }
-    
 }
 
 struct CastView_Previews: PreviewProvider {
@@ -40,7 +39,7 @@ struct CastView_Previews: PreviewProvider {
         CastView(
             model: .loaded([
                 Actor(id: "1", name: "Idris Elba", avatarUrl: URL(string: "https://image.tmdb.org/t/p/w342/be1bVF7qGX91a6c5WeRPs5pKXln.jpg")!),
-                Actor(id: "1", name: "Another", avatarUrl: URL(string: "https://image.tmdb.org/t/p/w342/be1bVF7qGX91a6c5WeRPs5pKXln.jpg")!),
+                Actor(id: "1", name: "Morgan Freeman", avatarUrl: URL(string: "https://image.tmdb.org/t/p/w342/oIciQWr8VwKoR8TmAw1owaiZFyb.jpg")!),
                 Actor(id: "1", name: "Actor", avatarUrl: URL(string: "https://image.tmdb.org/t/p/w342/be1bVF7qGX91a6c5WeRPs5pKXln.jpg")!)
             ])
         )

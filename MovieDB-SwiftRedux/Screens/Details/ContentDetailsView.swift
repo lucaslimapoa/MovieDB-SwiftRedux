@@ -7,7 +7,6 @@
 
 import SwiftUI
 import SwiftRedux
-import Kingfisher
 
 struct ContentDetailsView: View {
     @Dispatch<AnyAction> private var dispatch

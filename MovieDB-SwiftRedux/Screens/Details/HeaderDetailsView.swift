@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Kingfisher
 
 struct HeaderDetailsView: View {
     private enum Constants {
@@ -20,12 +19,7 @@ struct HeaderDetailsView: View {
     var body: some View {
         ZStack(alignment: .bottomLeading) {
             VStack {
-                KFImage(content.backdropURL)
-                    .placeholder { loadingImage() }
-                    .fade(duration: 0.35)
-                    .loadImmediately()
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
+                RemoteImage(url: content.backdropURL)                    
                     .frame(width: backdropWidth, height: Constants.backdropHeight, alignment: .top)
                     .clipShape(ArcRectangle())
                 
@@ -33,12 +27,7 @@ struct HeaderDetailsView: View {
             }
             
             HStack(alignment: .top) {
-                KFImage(content.posterURL)
-                    .placeholder { loadingImage() }
-                    .fade(duration: 0.35)
-                    .loadImmediately()
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
+                RemoteImage(url: content.posterURL)
                     .frame(width: Constants.posterSize.width, height: Constants.posterSize.height, alignment: .center)
                     .cornerRadius(8)
                     .clipped()
@@ -66,7 +55,7 @@ struct HeaderDetailsView: View {
                                 .foregroundColor(.secondary)
                         }
                     }
-                    .font(.system(size: 14))                    
+                    .font(.system(size: 14))
                 }
                 .padding(.top, 32)
             }
@@ -78,15 +67,11 @@ struct HeaderDetailsView: View {
     private var backdropWidth: CGFloat {
         UIScreen.main.bounds.width
     }
-    
-    private func loadingImage() -> some View {
-        ProgressView()
-            .frame(height: Constants.backdropHeight)
-    }
 }
 
 struct HeaderDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         HeaderDetailsView(content: fakeMovies[0])
+            .previewLayout(.sizeThatFits)
     }
 }

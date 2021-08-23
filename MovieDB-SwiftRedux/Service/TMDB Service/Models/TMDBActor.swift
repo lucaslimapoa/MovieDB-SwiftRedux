@@ -25,13 +25,12 @@ extension TMDBActor {
     func toActor() -> Actor? {
         guard let name = name,
               let profilePath = profilePath,
-              let avatarUrl = URL(string: "https://image.tmdb.org/t/p/w342\(profilePath)"),
-              let castId = castId else {
+              let avatarUrl = URL(string: "https://image.tmdb.org/t/p/w342\(profilePath)") else {
             return nil
         }
         
         return Actor(
-            id: String(castId),
+            id: castId.map(String.init) ?? UUID().uuidString,
             name: name,
             avatarUrl: avatarUrl
         )
